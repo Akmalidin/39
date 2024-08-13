@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from "react";
-import mask from "../../assets/images/school.jpg";
 import { FaEye } from "react-icons/fa";
 import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from "react-icons/md";
 import { FaArrowRightLong } from "react-icons/fa6";
+import axios from "axios";
 
 export const Galareya = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [images, setImages] = useState([]);
 
-  const images = [mask, mask, mask, mask, mask, mask, mask, mask, mask, mask];
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/gallery/gallery/')
+      .then(response => {
+        setImages(response.data.map(item => item.image)); // Adjust according to your API response
+      })
+      .catch(error => console.error('Error fetching images:', error));
+  }, []);
 
   const handleImageClick = (index) => {
     setSelectedImage(images[index]);
