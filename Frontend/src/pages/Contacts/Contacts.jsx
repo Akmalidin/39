@@ -1,11 +1,10 @@
 import React from 'react'
+import { ContactHero } from './ContactHero'
 
 export const Contacts = () => {
   return (
-    <section>
-      <div className="container">
-      Contacts
-      </div>
-    </section>
+    <div>
+      <ContactHero/>
+    </div>
   )
 }

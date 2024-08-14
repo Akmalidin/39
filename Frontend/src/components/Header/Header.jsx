@@ -29,7 +29,7 @@ export const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/academics"}>
+                <NavLink className="header__nav-item" to={"/teachers"}>
                   Учителя
                 </NavLink>
               </li>
