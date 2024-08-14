@@ -10,7 +10,7 @@ export const AboutHomeTwo = () => {
         <p>
           Мы стремимся воспитывать интеллектуально любопытных и социально ответственных учеников, готовых к будущим вызовам. Наши образовательные программы ориентированы на развитие критического мышления и творческого подхода.
         </p>
-        <NavLink to="/mission" className="about-home-two__link">
+        <NavLink to="/about" className="about-home-two__link">
           Узнать больше <FaArrowRightLong />
         </NavLink>
       </div>

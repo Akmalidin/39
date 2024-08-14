@@ -22,7 +22,7 @@ export const Teachers = () => {
   return (
     <section className="teachers">
       <div className="container">
-        <h2>Познакомьтесь с нашим персоналом</h2>
+        <h2>Познакомьтесь с нашим учителя</h2>
         <div className="teachers__list">
           {teachers.map((teach) => (
             <div key={teach.id} className="teacher__card">
