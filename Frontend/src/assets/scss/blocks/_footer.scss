@@ -40,43 +40,43 @@ footer {
       width: 170px;
       gap: 25px;
 
-        li {
-            width: 70px;
-          .header__nav-item {
-            font-family: "Gupter", serif;
-            font-size: 18px;
-            font-weight: 400;
-            color: #333;
-            cursor: pointer;
-            position: relative;
-            transition: color 0.3s ease;
+      li {
+        width: 70px;
+        .header__nav-item {
+          font-family: "Gupter", serif;
+          font-size: 18px;
+          font-weight: 400;
+          color: #333;
+          cursor: pointer;
+          position: relative;
+          transition: color 0.3s ease;
 
-            &:hover,
-            &.active {
-              color: #7ed957;
-            }
+          &:hover,
+          &.active {
+            color: #7ed957;
+          }
 
-            &::after {
-              content: "";
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: -3px;
-              height: 2px;
-              background-color: #7ed957;
-              transform: scaleX(0);
-              transition: transform 0.5s ease-in-out;
-              transform-origin: right;
-            }
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -3px;
+            height: 2px;
+            background-color: #7ed957;
+            transform: scaleX(0);
+            transition: transform 0.5s ease-in-out;
+            transform-origin: right;
+          }
 
-            &:hover::after,
-            &.active::after {
-              transform: scaleX(1);
-              transform-origin: left;
-            }
+          &:hover::after,
+          &.active::after {
+            transform: scaleX(1);
+            transform-origin: left;
           }
         }
       }
+    }
   }
 
   .footer__contact {
@@ -87,6 +87,9 @@ footer {
     }
 
     p {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 14px;
       color: #555;
       margin: 4px 0;
@@ -116,7 +119,7 @@ footer {
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      transition:all .5s ease-in-out;
+      transition: all 0.5s ease-in-out;
 
       &:hover {
         background: #7ed957;
