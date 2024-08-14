@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'teachers',
     'events',
     'gallery',
+    'link',
 ]
 
 MIDDLEWARE = [

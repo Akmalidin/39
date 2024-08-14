@@ -2,6 +2,10 @@ import React from 'react'
 
 export const Academics = () => {
   return (
-    <div>Academics</div>
+    <section>
+      <div className="container">
+      Academics
+      </div>
+    </section>
   )
 }

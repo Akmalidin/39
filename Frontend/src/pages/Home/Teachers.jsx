@@ -22,7 +22,7 @@ export const Teachers = () => {
   return (
     <section className="teachers">
       <div className="container">
-        <h2>Познакомьтесь с нашими учителями</h2>
+        <h2>Познакомьтесь с нашим персоналом</h2>
         <div className="teachers__list">
           {teachers.map((teach) => (
             <div key={teach.id} className="teacher__card">
@@ -34,15 +34,12 @@ export const Teachers = () => {
               >
                 <div className="teacher__image">
                   <img
-                    data-aos="zoom-in-up"
-                    data-aos-easing="linear"
-                    data-aos-duration="3000"
                     src={teach.photo || "path-to-your-placeholder-image"}
                     alt={teach.name}
                   />
                   <IoLogoWhatsapp className="whatsapp-icon" size={40} />
                 </div>
-                <div data-aos="zoom-out-up" className="teacher__info">
+                <div className="teacher__info">
                   <h3>{teach.name}</h3>
                   <p>{teach.the_teacher_of}</p>
                 </div>

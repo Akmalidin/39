@@ -8,6 +8,7 @@ urlpatterns = [
     path('event/', include('events.urls')),
     path('teacher/', include('teachers.urls')),
     path('gallery/', include('gallery.urls')), 
+    path('link/', include('link.urls')), 
 ]
 
 # Add this line to serve media files during development

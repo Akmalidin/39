@@ -2,6 +2,10 @@ import React from 'react'
 
 export const Contacts = () => {
   return (
-    <div>Contacts</div>
+    <section>
+      <div className="container">
+      Contacts
+      </div>
+    </section>
   )
 }

@@ -2,6 +2,10 @@ import React from 'react'
 
 export const Events = () => {
   return (
-    <div>Events</div>
+    <section>
+      <div className="container">
+      Events
+      </div>
+    </section>
   )
 }
