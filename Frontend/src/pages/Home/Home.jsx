@@ -4,7 +4,6 @@ import { Event } from "./Event";
 import { AboutHome } from "./AboutHome";
 import { Galareya } from "./Galareya";
 import { AboutHomeTwo } from "./AboutHomeTwo";
-import { Our } from "./Our";
 import { Personal } from "./Personal";
 import { AboutHomeThree } from "./AboutHomeThree";
 
@@ -14,11 +13,10 @@ export const Home = () => {
       <Hero />
       <AboutHome />
       <Event />
-      <Our/>
+      <AboutHomeThree/>
       <Personal/>
       <AboutHomeTwo />
       <Galareya />
-      <AboutHomeThree/>
     </div>
   );
 };
