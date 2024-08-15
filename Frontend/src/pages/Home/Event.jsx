@@ -1,11 +1,28 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 export const Event = () => {
+
+  const ScrollToTop = () => {
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
+  
+    return null;
+  };
+
   return (
     <section className="event">
       <div className="container">
-        <h1>Событие</h1>
+        <div className="event__head">
+          <h2>Событие</h2>
+          <NavLink to="/events" onClick={ScrollToTop}>
+            <h3>
+              смотреть все <FaArrowRightLong className="event__icon" />
+            </h3>
+          </NavLink>
+        </div>
         <div className="event__wrapper">
           <div className="event__card">
             <h2>Фестиваль</h2>

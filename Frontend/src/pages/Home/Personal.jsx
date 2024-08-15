@@ -1,9 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IoLogoWhatsapp } from "react-icons/io5";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
+
+const ScrollToTop = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
+  return null;
+};
+
 
 const formatPhoneNumber = (number) => {
-  return number.replace(/\D/g, '');
+  return number.replace(/\D/g, "");
 };
 
 export const Personal = () => {
@@ -22,7 +33,14 @@ export const Personal = () => {
   return (
     <section className="personal">
       <div className="container">
-        <h2>Познакомьтесь с нашим персоналом</h2>
+        <div className="personal__head">
+          <h2>Познакомьтесь с нашим персоналом</h2>
+          <NavLink to="/teachers" onClick={ScrollToTop}>
+            <h3>
+              Учителя <FaArrowRightLong className="personal__icon" />
+            </h3>
+          </NavLink>
+        </div>
         <div className="personal__list">
           {personal.map((person) => (
             <div key={person.id} className="personal__card">

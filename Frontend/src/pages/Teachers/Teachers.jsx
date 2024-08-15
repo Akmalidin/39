@@ -26,7 +26,6 @@ export const Teachers = () => {
   );
 
   const handleSearch = () => {
-    // This function can be used for any additional search logic if needed
     console.log("Search triggered:", searchTerm);
   };
 
@@ -40,7 +39,7 @@ export const Teachers = () => {
     <section className="teachers">
       <div className="teachers__search">
         <div className="container">
-          <h2>Познакомьтесь с нашим учителя</h2>
+          <h2>Познакомьтесь с нашим учителями</h2>
           <div className="teachers__search-bar">
             <input
               type="text"
@@ -57,6 +56,7 @@ export const Teachers = () => {
         </div>
       </div>
       <div className="container">
+        
         <div className="teachers__list">
           {filteredTeachers.length > 0 ? (
             filteredTeachers.map((teach) => (
