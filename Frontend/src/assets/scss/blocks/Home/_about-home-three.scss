@@ -1,0 +1,56 @@
+.about-home-three {
+    padding: 60px 0;
+    background-color: #eaf4f4;
+    text-align: center;
+    margin: 90px 0;
+  
+    h1 {
+      font-size: 2.5rem;
+      color: $black;
+      margin-bottom: 20px;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+  
+    .about-home-three__link {
+        font-family: 'Gupter', sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+        color: #32a852;
+        text-decoration: none;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease-in-out;
+    
+        &:hover {
+              color: $light__green;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: -3px;
+              height: 2px;
+              background-color: $light__green;
+              transform: scaleX(0);
+              transition: transform 0.5s ease-in-out;
+              transform-origin: right;
+            }
+
+            &:hover::after {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+      }
+  }
+  

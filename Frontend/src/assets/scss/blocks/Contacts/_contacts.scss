@@ -1,1 +1,18 @@
-@import "./contact-hero";
+@import "./contactForm";
+@import "./contactInfo";
+@import "./contactMap";
+@import "./contactReviews";
+
+.contact__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contact-hero__wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    margin: 50px 0;
+}

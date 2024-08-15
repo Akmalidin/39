@@ -9,12 +9,35 @@ import { FiTwitter } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 
 export const Footer = () => {
+
+  const [contact, setContact] = useState({
+    phone: "",
+    email: ""
+  });
+
   const [links, setLinks] = useState({
     link_tiktok: "",
     link_instagram: "",
     link_facebook: "",
     link_twitter: "",
   });
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/contact/contacts/")
+      .then((response) => {
+        if (response.data.length > 0) {
+          const contactInfo = response.data[0]; 
+          setContact({
+            phone: contactInfo.phone_number,
+            email: contactInfo.email
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при загрузке контакта:", error);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -74,13 +97,13 @@ export const Footer = () => {
           <div className="footer__contact">
             <h3>Связаться</h3>
             <p>
-              <FaPhoneAlt /> <strong> Телефон:</strong> +62.21.5314.1135
+              <FaPhoneAlt /> <strong> Телефон:</strong> {contact.phone}
             </p>
             <p>
-              <MdEmail /> <strong> Email:</strong> community@dwidasa.com
+              <MdEmail /> <strong> Email:</strong> {contact.email}
             </p>
             <p>
-              <FaLocationDot /> <strong> Адрес:</strong> Атабаева 58
+              <FaLocationDot /> <strong> Адрес:</strong>  Мадумарова 85 а, г.Ош
             </p>
           </div>
 
