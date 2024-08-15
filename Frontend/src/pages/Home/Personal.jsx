@@ -4,13 +4,11 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 
-const ScrollToTop = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  return null;
-};
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+  })
+}
 
 
 const formatPhoneNumber = (number) => {
@@ -35,7 +33,7 @@ export const Personal = () => {
       <div className="container">
         <div className="personal__head">
           <h2>Познакомьтесь с нашим персоналом</h2>
-          <NavLink to="/teachers" onClick={ScrollToTop}>
+          <NavLink to="/teachers" onClick={scrollToTop}>
             <h3>
               Учителя <FaArrowRightLong className="personal__icon" />
             </h3>

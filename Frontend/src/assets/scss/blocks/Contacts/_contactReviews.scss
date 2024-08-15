@@ -3,23 +3,33 @@
   width: 620px;
 
   h3 {
+    font-family: $gupter;
+    font-size: 19px;
+    font-weight: 400;
     margin-bottom: 1rem;
     color: #2c3e50;
+    letter-spacing: 1px;
   }
 
   blockquote {
     width: 100%;
     background-color: #ecf0f1;
-    border-left: 4px solid #27ae60;
+    border-left: 4px solid $primary-color;
     padding: 10px;
     margin-bottom: 15px;
 
     p {
+      font-family: $gupter;
+      font-size: 18px;
+      font-weight: 400;
       margin: 0;
       color: #34495e;
     }
 
     cite {
+      font-family: $gupter;
+      font-size: 16px;
+      font-weight: 400;
       display: block;
       margin-top: 0.5rem;
       color: #7f8c8d;

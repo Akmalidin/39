@@ -3,35 +3,35 @@
   background-color: #eaf4f4;
   text-align: center;
 
-  h1 {
+  h2 {
+    font-family: $gupter;
+    font-weight: 500;
     font-size: 2.5rem;
     color: $black;
     margin-bottom: 20px;
   }
 
   p {
+    font-family: $gupter;
+    font-weight: 400;
     font-size: 1.1rem;
-    color: #555;
+    color: $gray;
     max-width: 600px;
     margin: 0 auto 30px;
     line-height: 1.6;
   }
 
   .about-home-three__link {
-    font-family: "Gupter", sans-serif;
-    font-size: 18px;
+    font-family: $gupter;
+    font-size: 19px;
     font-weight: 400;
-    color: #32a852;
+    color: $primary-color;
     text-decoration: none;
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     transition: all 0.3s ease-in-out;
-
-    &:hover {
-      color: $light__green;
-    }
 
     &::after {
       content: "";
@@ -40,7 +40,7 @@
       right: 0;
       bottom: -3px;
       height: 2px;
-      background-color: $light__green;
+      background-color: $primary-color;
       transform: scaleX(0);
       transition: transform 0.5s ease-in-out;
       transform-origin: right;
@@ -64,7 +64,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background: #fff;
+      background: $white;
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -75,7 +75,7 @@
 
       .our__item-wrapper {
         position: absolute;
-        left: 25%;
+        left: 32%;
         top: 9%;
         transform: rotate(-45deg);
       }
@@ -94,13 +94,14 @@
       }
 
       .our__icon {
-        font-size: 25px; /* Adjusted icon size */
+        font-size: 25px;
         color: #333;
         transition: transform 0.3s ease;
       }
 
       .our__count {
-        font-size: 1.5rem; /* Adjusted font size */
+        font-family: $gupter;
+        font-size: 1.5rem;
         font-weight: bold;
         color: #555;
         margin: 8px 0;
@@ -109,7 +110,9 @@
       }
 
       .our__title {
-        font-size: 1rem; 
+        font-family: $gupter;
+        font-weight: 500;
+        font-size: 1rem;
         color: #333;
         text-align: center;
         transition: color 0.3s ease;
