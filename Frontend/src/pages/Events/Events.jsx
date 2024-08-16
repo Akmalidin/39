@@ -4,16 +4,19 @@ import teach from "../../assets/images/Учитель2.jpg";
 
 export const Events = () => {
   const [events, setEvents] = useState([]);
+  const [filteredEvents, setFilteredEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/event/events/")
       .then((response) => response.json())
       .then((data) => {
         setEvents(data);
+        setFilteredEvents(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,7 +36,6 @@ export const Events = () => {
     setIsModalOpen(false);
   };
 
-  // Close modal on "Escape" key press
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "Escape" && isModalOpen) {
@@ -47,11 +49,19 @@ export const Events = () => {
     };
   }, [isModalOpen]);
 
-  // Close modal when clicking outside the modal content
   const handleOutsideClick = (event) => {
     if (event.target.className === "modal") {
       closeModal();
     }
+  };
+
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+    const filtered = events.filter((event) =>
+      event.title.toLowerCase().includes(query)
+    );
+    setFilteredEvents(filtered);
   };
 
   if (loading) return <p>Загрузка...</p>;
@@ -67,6 +77,8 @@ export const Events = () => {
               type="text"
               placeholder="Поиск cобытия..."
               className="event__input"
+              value={searchQuery}
+              onChange={handleSearch}
             />
             <button className="teachers__search-button">Поиск</button>
           </div>
@@ -91,7 +103,7 @@ export const Events = () => {
           </div>
         </div>
         <div className="event__wrapper">
-          {events.map((event) => (
+          {filteredEvents.map((event) => (
             <div
               key={event.title}
               className="event__card"
