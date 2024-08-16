@@ -95,11 +95,13 @@
   .fairs-grid {
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
 
     .fairs-left {
-      flex: 1;
+      width: 60%;
       background-color: #f4f4f4;
-      padding: 20px;
+      padding: 30px;
       border-radius: 8px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease-in-out;
@@ -121,7 +123,7 @@
         font-family: $gupter;
         font-weight: 400;
         font-size: 1.1rem;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         color: $gray;
         margin-bottom: 15px;
         animation: slideIn 1s ease-in-out;
@@ -129,7 +131,7 @@
     }
 
     .fairs-right {
-      flex: 1;
+      width: 35%;
       display: flex;
       justify-content: center;
 
@@ -151,13 +153,13 @@
   .event__wrapper {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: start;
+    gap: 30px 80px;
     flex-wrap: wrap;
-    gap: 30px;
-    padding-bottom: 20px;
+    margin: 40px 0;
 
     .event__card {
-      height: 240px;
+      height: 220px;
       background-size: cover;
       border-radius: 20px;
       position: relative;
@@ -169,7 +171,6 @@
       color: $white;
       padding: 30px 90px;
       transition: transform 0.5s linear, box-shadow 0.5s ease;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       white-space: nowrap;
 
       &:hover {

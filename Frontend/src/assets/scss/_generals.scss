@@ -27,3 +27,22 @@ list-style: none;
 a{
     text-decoration: none;
 }
+
+.loading__img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin: 80px;
+}
+
+.error__text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: 28px;
+  font-weight: 500;
+  font-family: $gupter;
+  letter-spacing: 1px;
+  margin: 80px;
+}

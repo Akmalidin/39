@@ -6,13 +6,22 @@ export const Event = () => {
   const [events, setEvents] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const modalRef = useRef(null);
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/event/events/")
       .then((response) => response.json())
-      .then((data) => setEvents(data))
-      .catch((error) => console.error("Error fetching events:", error));
+      .then((data) => {
+        setEvents(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching events:", error);
+        setError("Ошибка при загрузке данных. Попробуйте позже.");
+        setLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -67,6 +76,23 @@ export const Event = () => {
     };
   }, [isModalOpen]);
 
+  if (loading)
+    return (
+      <center>
+        <img
+          className="loading__img"
+          src="../../assets/images/loading.svg"
+          alt="loading"
+        />
+      </center>
+    );
+  if (error)
+    return (
+      <center>
+        <b className="error__text">{error}</b>
+      </center>
+    );
+
   return (
     <section className="event">
       <div className="container">
@@ -83,7 +109,11 @@ export const Event = () => {
             <div
               key={event.title}
               className="event__card"
-              style={{ backgroundImage: `url(${event.image || '/src/assets/images/Mask.png'})` }}
+              style={{
+                backgroundImage: `url(${
+                  event.image || "/src/assets/images/Mask.png"
+                })`,
+              }}
             >
               <h2>{event.title}</h2>
               <h4>
@@ -104,7 +134,9 @@ export const Event = () => {
               <div
                 className="modal__image"
                 style={{
-                  backgroundImage: `url(${selectedEvent.image || '/src/assets/images/Mask.png'})`,
+                  backgroundImage: `url(${
+                    selectedEvent.image || "/src/assets/images/Mask.png"
+                  })`,
                 }}
               ></div>
               <div className="modal__info">

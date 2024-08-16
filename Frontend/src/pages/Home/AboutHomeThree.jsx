@@ -4,6 +4,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { PiStudentBold } from "react-icons/pi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { SiGoogleclassroom } from "react-icons/si";
+import { MdMeetingRoom } from "react-icons/md";
 
 const useCountUp = (ref, end, duration = 2000) => {
   useEffect(() => {
@@ -44,10 +45,12 @@ export const AboutHomeThree = () => {
   const studentsRef = useRef(null);
   const teachersRef = useRef(null);
   const classesRef = useRef(null);
+  const roomRef = useRef(null);
 
   useCountUp(studentsRef, 1200, 3000); 
   useCountUp(teachersRef, 80, 3000);
   useCountUp(classesRef, 120, 3000);
+  useCountUp(roomRef, 70, 3000);
 
   return (
     <section data-aos="fade-up" className="about-home-three">
@@ -86,6 +89,15 @@ export const AboutHomeThree = () => {
               </div>
               <p ref={classesRef} className="our__count">0</p>
               <h2 className="our__title">Классы</h2>
+            </div>
+          </div>
+          <div className="our__item">
+            <div className="our__item-wrapper">
+              <div className="our__icon-wrapper">
+                <MdMeetingRoom className="our__icon" />
+              </div>
+              <p ref={roomRef} className="our__count">0</p>
+              <h2 className="our__title">Комнаты</h2>
             </div>
           </div>
         </div>
