@@ -24,7 +24,7 @@ footer {
 
     .footer__slogan {
       font-size: 16px;
-      color: #666;
+      color: $gray;
       margin-top: 17px;
       text-align: center;
     }
@@ -52,7 +52,7 @@ footer {
 
           &:hover,
           &.active {
-            color: #7ed957;
+            color: $light__green;
           }
 
           &::after {
@@ -62,7 +62,7 @@ footer {
             right: 0;
             bottom: -3px;
             height: 2px;
-            background-color: #7ed957;
+            background-color: $light__green;
             transform: scaleX(0);
             transition: transform 0.5s ease-in-out;
             transform-origin: right;
@@ -94,7 +94,7 @@ footer {
       font-family: $gupter;
       font-weight: 300;
       font-size: 14px;
-      color: #555;
+      color: $gray;
       margin: 4px 0;
     }
   }
@@ -125,7 +125,7 @@ footer {
       transition: all 0.5s ease-in-out;
 
       &:hover {
-        background: #7ed957;
+        background: $light__green;
         transform: scale(1.15) rotate(10deg);
       }
 
@@ -136,7 +136,7 @@ footer {
       }
 
       &:hover .footer__icon {
-        color: #fff;
+        color: $white;
       }
     }
   }

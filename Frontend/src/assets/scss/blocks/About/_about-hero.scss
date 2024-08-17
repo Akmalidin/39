@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100vh;
   padding: 60px 0;
-  background-color: #ffffff;
+  background-color: $white;
 
   .hero__content {
     display: flex;
@@ -21,6 +21,7 @@
     max-width: 600px;
 
     h3 {
+      font-family: $gupter;
       font-size: 2.6rem;
       margin-bottom: 20px;
       color: #2c3e50;
@@ -28,9 +29,11 @@
     }
 
     p {
+      font-family: $gupter;
+      font-weight: 500;
       font-size: 1.2rem;
       line-height: 1.8;
-      color: #555;
+      color: $gray;
     }
   }
 

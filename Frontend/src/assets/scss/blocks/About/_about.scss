@@ -8,15 +8,16 @@
     text-align: center;
   
     h2 {
-      font-size: 2.8rem;
+      font-family: $gupter;
+      font-weight: 800;
+      font-size: 2.5rem;
       color: #333;
       margin-bottom: 20px;
       position: relative;
       display: inline-block;
       padding-bottom: 10px;
   
-      &:hover,
-      &.active {
+      &:hover{
         color: $light__green;
       }
   
@@ -29,21 +30,22 @@
         height: 3px;
         background-color: $light__green;
         transform: scaleX(0);
-        transition: transform 0.5s ease-in-out;
-        transform-origin: right;
+        transition: transform 0.8s ease-in-out;
+        transform-origin: center;
       }
   
-      &:hover::after,
-      &.active::after {
+      &:hover::after {
         transform: scaleX(1);
-        transform-origin: left;
+        transform-origin: center;
       }
     }
   
     p {
+      font-family: $gupter;
+      font-weight: 400;
       font-size: 1.2rem;
       line-height: 1.8;
-      color: #555;
+      color: $gray;
       max-width: 800px;
       margin: 0 auto;
       margin-bottom: 40px;
