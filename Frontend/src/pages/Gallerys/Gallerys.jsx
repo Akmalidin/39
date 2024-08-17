@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaEye } from "react-icons/fa";
+import { FaCircleArrowLeft } from "react-icons/fa6";
 import {
   MdKeyboardDoubleArrowRight,
   MdKeyboardDoubleArrowLeft,
 } from "react-icons/md";
-import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export const Galareya = () => {
+export const Gallerys = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/gallery/gallery/")
       .then((response) => {
-        setImages(response.data.map((item) => item.image)); 
+        setImages(response.data.map((item) => item.image)); // Adjust according to your API response
       })
       .catch((error) => console.error("Error fetching images:", error));
   }, []);
 
-  const handleImageClick = (index) => {
-    setSelectedImage(images[index]);
-    setCurrentIndex(index);
-    setIsOpen(true);
-  };
+  const handleImageClick = useCallback(
+    (index) => {
+      setSelectedImage(images[index]);
+      setCurrentIndex(index);
+      setIsOpen(true);
+    },
+    [images]
+  );
 
   const closeModal = () => {
     setIsOpen(false);
@@ -35,84 +39,97 @@ export const Galareya = () => {
   };
 
   const handleNext = () => {
-    const nextIndex = (currentIndex + 1) % images.length;
-    setSelectedImage(images[nextIndex]);
-    setCurrentIndex(nextIndex);
+    setCurrentIndex((prevIndex) => {
+      const nextIndex = (prevIndex + 1) % images.length;
+      setSelectedImage(images[nextIndex]);
+      return nextIndex;
+    });
   };
 
   const handlePrevious = () => {
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    setSelectedImage(images[previousIndex]);
-    setCurrentIndex(previousIndex);
+    setCurrentIndex((prevIndex) => {
+      const previousIndex = (prevIndex - 1 + images.length) % images.length;
+      setSelectedImage(images[previousIndex]);
+      return previousIndex;
+    });
   };
 
-  const handleKeyDown = (e) => {
-    if (isOpen) {
-      if (e.key === "ArrowRight") {
-        handleNext();
-      } else if (e.key === "ArrowLeft") {
-        handlePrevious();
-      } else if (e.key === "Escape") {
-        closeModal();
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (isOpen) {
+        if (e.key === "ArrowRight") {
+          handleNext();
+        } else if (e.key === "ArrowLeft") {
+          handlePrevious();
+        } else if (e.key === "Escape") {
+          closeModal();
+        }
       }
-    }
-  };
+    },
+    [isOpen, handleNext, handlePrevious]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, currentIndex]);
+  }, [handleKeyDown]);
 
   return (
-    <section className="galareya">
+    <section className="gallerys">
+      <div className="gallerys__header">
+        <button onClick={() => navigate(-1)} className="back-button">
+          <FaCircleArrowLeft />
+        </button>
+        <div className="container">
+          <h2>Наша галерея</h2>
+        </div>
+      </div>
       <div className="container">
-        <h2>Наша галерея</h2>
         <div className="mosaic-gallery">
-          {images.slice(0, 8).map((image, index) => (
+          {images.map((image, index) => (
             <div
               key={index}
               className={`mosaic-item item-${index + 1}`}
               onClick={() => handleImageClick(index)}
             >
-              <img src={image} alt="galarey" />
+              <img src={image} alt={`Gallery item ${index + 1}`} />
               <div className="overlay">
                 <FaEye className="icon" />
               </div>
             </div>
           ))}
         </div>
-        <NavLink to="/gallerys">
-          <h3>
-            Смотреть все <FaArrowRightLong />
-          </h3>
-        </NavLink>
       </div>
 
       {isOpen && (
         <div className="modal" onClick={closeModal}>
-          <span className="close">&times;</span>
+          <span className="close" onClick={closeModal}>
+            &times;
+          </span>
           <img
             className="modal-content"
             src={selectedImage}
             alt="Enlarged view"
           />
           <button
+            className="previous-button"
             onClick={(e) => {
               e.stopPropagation();
               handlePrevious();
             }}
           >
-            <MdKeyboardDoubleArrowLeft className="previous-button" />
+            <MdKeyboardDoubleArrowLeft />
           </button>
           <button
+            className="next-button"
             onClick={(e) => {
               e.stopPropagation();
               handleNext();
             }}
           >
-            <MdKeyboardDoubleArrowRight className="next-button" />
+            <MdKeyboardDoubleArrowRight />
           </button>
         </div>
       )}
