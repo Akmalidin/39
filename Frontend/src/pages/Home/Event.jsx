@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
 export const Event = () => {
   const [events, setEvents] = useState([]);
@@ -76,38 +78,45 @@ export const Event = () => {
     };
   }, [isModalOpen]);
 
-  if (loading)
+  if (loading) {
     return (
-      <center>
-        <img
-          className="loading__img"
-          src="../../assets/images/loading.svg"
-          alt="loading"
-        />
-      </center>
+      <div className="loading">
+        <img src={loadingi} alt="" />
+      </div>
     );
-  if (error)
+  }
+
+  if (error) {
     return (
-      <center>
-        <b className="error__text">{error}</b>
-      </center>
+      <div className="error">
+        <img src={notfound} alt="" />
+      </div>
     );
+  }
+
+  if (events.length === 0) {
+    return (
+      <div className="no-product">
+        <p>На данный момент нет доступных событий.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="event">
       <div className="container">
         <div className="event__head">
-          <h2>Событие</h2>
+          <h2>События</h2>
           <NavLink to="/events" onClick={scrollToTop}>
             <h3>
-              смотреть все <FaArrowRightLong className="event__icon" />
+              Смотреть все <FaArrowRightLong className="event__icon" />
             </h3>
           </NavLink>
         </div>
         <div className="event__wrapper">
           {events.slice(0, 10).map((event) => (
             <div
-              key={event.title}
+              key={event.id} // Используйте уникальный идентификатор, если есть
               className="event__card"
               style={{
                 backgroundImage: `url(${

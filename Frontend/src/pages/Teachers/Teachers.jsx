@@ -2,40 +2,70 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import teach from "../../assets/images/teachers.jpg";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
-const formatPhoneNumber = (number) => {
-  return number.replace(/\D/g, "");
-};
+const formatPhoneNumber = (number) => number.replace(/\D/g, "");
 
 export const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
+  const [filteredTeachers, setFilteredTeachers] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/teacher/teachers/")
       .then((response) => {
-        console.log(response.data);
         setTeachers(response.data);
+        setFilteredTeachers(response.data);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setError("Ошибка при загрузке данных. Попробуйте позже.");
+        setLoading(false);
+      });
   }, []);
 
-  const filteredTeachers = teachers.filter(
-    (teacher) =>
-      teacher.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      teacher.the_teacher_of.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleSearch = () => {
-    console.log("Search triggered:", searchTerm);
-  };
+  useEffect(() => {
+    const filtered = teachers.filter(
+      (teacher) =>
+        teacher.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        teacher.the_teacher_of.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTeachers(filtered);
+  }, [searchTerm, teachers]);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      handleSearch();
     }
   };
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src={loadingi} alt="Загрузка..." />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <img src={notfound} alt="Ошибка при загрузке" />
+      </div>
+    );
+  }
+
+  if (filteredTeachers.length === 0) {
+    return (
+      <div className="no-product">
+        <p>На данный момент нет доступных учителей.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="teachers">
@@ -51,9 +81,7 @@ export const Teachers = () => {
               onKeyDown={handleKeyPress}
               className="teachers__input"
             />
-            <button onClick={handleSearch} className="teachers__search-button">
-              Поиск
-            </button>
+            <button className="teachers__search-button">Поиск</button>
           </div>
         </div>
       </div>
@@ -71,7 +99,6 @@ export const Teachers = () => {
                 бесценный опыт, укрепляют командный дух и находят новых друзей.
               </p>
             </div>
-
             <div className="fairs-right">
               <img src={teach} alt="Учитель" className="fairs-image" />
             </div>

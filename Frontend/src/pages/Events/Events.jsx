@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import teach from "../../assets/images/Учитель2.jpg";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
 export const Events = () => {
   const [events, setEvents] = useState([]);
@@ -64,8 +66,29 @@ export const Events = () => {
     setFilteredEvents(filtered);
   };
 
-  if (loading) return <p>Загрузка...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src={loadingi} alt="" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <img src={notfound} alt="" />
+      </div>
+    );
+  }
+
+  if (events.length === 0) {
+    return (
+      <div className="no-product">
+        <p>На данный момент нет доступных событий.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="school-fairs-section">

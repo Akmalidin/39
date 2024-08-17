@@ -3,13 +3,14 @@ import axios from "axios";
 import { IoLogoWhatsapp } from "react-icons/io5";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-  })
-}
-
+  });
+};
 
 const formatPhoneNumber = (number) => {
   return number.replace(/\D/g, "");
@@ -17,16 +18,46 @@ const formatPhoneNumber = (number) => {
 
 export const Personal = () => {
   const [personal, setPersonal] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/personal/personals/")
+      .get("http://127.0.0.1:8000/personal/personals")
       .then((response) => {
-        console.log(response.data);
         setPersonal(response.data);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching data:", error));
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setError("Не удалось загрузить данные персоналом");
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src={loadingi} alt="Загрузка" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <img src={notfound} alt="Ошибка загрузки" />
+      </div>
+    );
+  }
+
+  if (personal.length === 0) {
+    return (
+      <div className="no-product">
+        <p>На данный момент персонал отсутствует.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="personal">

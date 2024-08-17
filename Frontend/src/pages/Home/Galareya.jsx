@@ -7,20 +7,30 @@ import {
 import { FaArrowRightLong } from "react-icons/fa6";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
 export const Galareya = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/gallery/gallery/")
       .then((response) => {
-        setImages(response.data.map((item) => item.image)); 
+        const fetchedImages = response.data.map((item) => item.image);
+        setImages(fetchedImages);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching images:", error));
+      .catch((error) => {
+        setError("Error fetching images");
+        setLoading(false);
+        console.error("Error fetching images:", error);
+      });
   }, []);
 
   const handleImageClick = (index) => {
@@ -64,6 +74,30 @@ export const Galareya = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen, currentIndex]);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src={loadingi} alt="Загрузка" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <img src={notfound} alt="Ошибка загрузки" />
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return (
+      <div className="no-product">
+        <p>На данный момент изображения отсутствуют.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="galareya">

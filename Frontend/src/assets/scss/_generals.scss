@@ -21,28 +21,49 @@ h6 {
 }
 
 li {
- list-style: none;
+  list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.loading__img{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  margin: 80px;
+.loading {
+  img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 350px;
+    object-fit: contain;
+    margin: 0 auto;
+    transform: scale(0.2);
+  }
 }
 
-.error__text{
+.error {
+  img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 350px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+}
+
+.no-product {
+ p{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-style: 28px;
-  font-weight: 500;
-  font-family: $gupter;
+  width: 400px;
+  height: 350px;
+  margin: 0 auto;
+  font-style: 35px;
+  font-weight: 600;
   letter-spacing: 1px;
-  margin: 80px;
+  font-family: $gupter;
+ }
 }

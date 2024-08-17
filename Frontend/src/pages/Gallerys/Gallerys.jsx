@@ -7,6 +7,8 @@ import {
 } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import loadingi from "../../assets/images/loading.svg";
+import notfound from "../../assets/images/not-found.jpeg";
 
 export const Gallerys = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +16,22 @@ export const Gallerys = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/gallery/gallery/")
       .then((response) => {
-        setImages(response.data.map((item) => item.image)); // Adjust according to your API response
+        const fetchedImages = response.data.map((item) => item.image);
+        setImages(fetchedImages);
+        setLoading(false);
       })
-      .catch((error) => console.error("Error fetching images:", error));
+      .catch((error) => {
+        setError("Error fetching images");
+        setLoading(false);
+        console.error("Error fetching images:", error);
+      });
   }, []);
 
   const handleImageClick = useCallback(
@@ -33,26 +43,28 @@ export const Gallerys = () => {
     [images]
   );
 
-  const closeModal = () => {
-    setIsOpen(false);
-    setSelectedImage(null);
-  };
+  const closeModal = useCallback((e) => {
+    if (e.target.classList.contains("modal")) {
+      setIsOpen(false);
+      setSelectedImage(null);
+    }
+  }, []);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) => {
       const nextIndex = (prevIndex + 1) % images.length;
       setSelectedImage(images[nextIndex]);
       return nextIndex;
     });
-  };
+  }, [images]);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prevIndex) => {
       const previousIndex = (prevIndex - 1 + images.length) % images.length;
       setSelectedImage(images[previousIndex]);
       return previousIndex;
     });
-  };
+  }, [images]);
 
   const handleKeyDown = useCallback(
     (e) => {
@@ -62,7 +74,7 @@ export const Gallerys = () => {
         } else if (e.key === "ArrowLeft") {
           handlePrevious();
         } else if (e.key === "Escape") {
-          closeModal();
+          setIsOpen(false);
         }
       }
     },
@@ -75,6 +87,30 @@ export const Gallerys = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <img src={loadingi} alt="Загрузка" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="error">
+        <img src={notfound} alt="Ошибка загрузки" />
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return (
+      <div className="no-images">
+        <p>На данный момент изображения отсутствуют.</p>
+      </div>
+    );
+  }
 
   return (
     <section className="gallerys">
@@ -105,34 +141,30 @@ export const Gallerys = () => {
 
       {isOpen && (
         <div className="modal" onClick={closeModal}>
-          <span className="close" onClick={closeModal}>
-            &times;
-          </span>
-          <img
-            className="modal-content"
-            src={selectedImage}
-            alt="Enlarged view"
-          />
-          <button
-            className="previous-button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePrevious();
-            }}
-          >
-            <MdKeyboardDoubleArrowLeft />
-          </button>
-          <button
-            className="next-button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNext();
-            }}
-          >
-            <MdKeyboardDoubleArrowRight />
-          </button>
-        </div>
-      )}
-    </section>
-  );
+        <span className="close">&times;</span>
+        <img
+          className="modal-content"
+          src={selectedImage}
+          alt="Enlarged view"
+        />
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handlePrevious();
+          }}
+        >
+          <MdKeyboardDoubleArrowLeft className="previous-button" />
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleNext();
+          }}
+        >
+          <MdKeyboardDoubleArrowRight className="next-button" />
+        </button>
+      </div>
+    )}
+  </section>
+);
 };
