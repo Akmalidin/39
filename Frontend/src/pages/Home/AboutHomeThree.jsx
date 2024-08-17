@@ -41,6 +41,12 @@ const useCountUp = (ref, end, duration = 2000) => {
   }, [ref, end, duration]);
 };
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
+
 export const AboutHomeThree = () => {
   const studentsRef = useRef(null);
   const teachersRef = useRef(null);
@@ -59,7 +65,7 @@ export const AboutHomeThree = () => {
         <p>
           Мы стремимся открыть перед нашими учениками новые горизонты знаний. В нашей школе каждый ребенок получает возможность развивать свои способности, что закладывает основу для их будущих успехов.
         </p>
-        <NavLink to="/about" className="about-home-three__link">
+        <NavLink to="/about" onClick={scrollToTop} className="about-home-three__link">
           Узнать больше <FaArrowRightLong />
         </NavLink>
 

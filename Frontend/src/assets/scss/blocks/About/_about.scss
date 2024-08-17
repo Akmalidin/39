@@ -1,0 +1,52 @@
+@import "./about-hero";
+@import "./about-misia";
+@import "./about-galareya";
+
+.about {
+    padding: 40px 0 0 0;
+    background: #eaf4f4;;
+    text-align: center;
+  
+    h2 {
+      font-size: 2.8rem;
+      color: #333;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+  
+      &:hover,
+      &.active {
+        color: $light__green;
+      }
+  
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 3px;
+        background-color: $light__green;
+        transform: scaleX(0);
+        transition: transform 0.5s ease-in-out;
+        transform-origin: right;
+      }
+  
+      &:hover::after,
+      &.active::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  
+    p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+    }
+  }
+  

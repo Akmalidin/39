@@ -9,6 +9,11 @@ import { FiTwitter } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
 
   const [contact, setContact] = useState({
     phone: "",
@@ -58,7 +63,7 @@ export const Footer = () => {
       <div className="container">
         <div className="footer__wrapper">
           <div className="footer__logo-section">
-            <NavLink to={"/"} className="footer__logo">
+            <NavLink to={"/"} className="footer__logo" onClick={scrollToTop}>
               <img src={Logo} alt="School Logo" />
             </NavLink>
           </div>
@@ -66,28 +71,28 @@ export const Footer = () => {
           <nav className="footer__nav">
             <ul>
               <li>
-                <NavLink className="header__nav-item" exact to={"/"}>
+                <NavLink className="header__nav-item" onClick={scrollToTop} exact to={"/"}>
                   Главная
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/about"}>
+                <NavLink className="header__nav-item" onClick={scrollToTop} to={"/about"}>
                   О нас
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/teachers"}>
+                <NavLink className="header__nav-item" onClick={scrollToTop} to={"/teachers"}>
                   Учителя
                 </NavLink>
               </li>
 
               <li>
-                <NavLink className="header__nav-item" to={"/events"}>
+                <NavLink className="header__nav-item" onClick={scrollToTop} to={"/events"}>
                   События
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/contacts"}>
+                <NavLink className="header__nav-item" onClick={scrollToTop} to={"/contacts"}>
                   Контакты
                 </NavLink>
               </li>

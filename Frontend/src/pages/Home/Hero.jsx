@@ -9,7 +9,8 @@ export const Hero = () => {
   const [links, setLinks] = useState({ link_instagram: "" });
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/link/links/")
+    axios
+      .get("http://127.0.0.1:8000/link/links/")
       .then((response) => {
         setLinks(response.data[0]);
       })
@@ -25,13 +26,17 @@ export const Hero = () => {
             <h4>Каждый урок — шаг к достижению вашей мечты.</h4>
             <div className="hero__info-btns">
               <NavLink to={"/about"}>
-              <button>
-                Узнать больше <FaArrowRightLong />
-              </button>
-              </NavLink>
-              <a href={links.link_instagram} target="_blank" rel="noopener noreferrer">
                 <button>
-                  <FaInstagram className="info__btn-icon" /> Instagram
+                  Узнать больше <FaArrowRightLong className="info__btn-icon1" />
+                </button>
+              </NavLink>
+              <a
+                href={links.link_instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button>
+                  <FaInstagram className="info__btn-icon2" /> Instagram
                 </button>
               </a>
             </div>
