@@ -106,7 +106,10 @@ export const Gallerys = () => {
 
   if (images.length === 0) {
     return (
-      <div className="no-images">
+      <div className="no-product">
+         <button onClick={() => navigate(-1)} className="back-button">
+          <FaCircleArrowLeft />
+        </button>
         <p>На данный момент изображения отсутствуют.</p>
       </div>
     );
