@@ -10,7 +10,7 @@
     margin: 40px 0;
 
     h2 {
-      font-family: $gupter;
+      font-family: $playfair;
       font-size: 36px;
       color: $black;
       font-weight: 700;
@@ -24,7 +24,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-family: $gupter;
+      font-family: $playfair;
       font-size: 20px;
       color: $primary-color;
       font-weight: 500;
@@ -136,7 +136,7 @@
       }
 
       h2 {
-        font-family: $gupter;
+        font-family: $playfair;
         font-weight: 600;
         font-size: 30px;
         margin-bottom: 10px;
@@ -155,13 +155,13 @@
       }
 
       h4 {
-        font-family: $gupter;
+        font-family: $playfair;
         font-weight: 500;
         font-size: 22px;
         margin-bottom: 20px;
 
         span {
-          font-family: $gupter;
+          font-family: $playfair;
           font-weight: bold;
           color: $light-gray;
           text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -178,7 +178,7 @@
         border-radius: 12px;
         color: $white;
         cursor: pointer;
-        font-family: $gupter;
+        font-family: $playfair;
         font-weight: 500;
         font-size: 16px;
         transition: transform 0.3s, box-shadow 0.3s;
@@ -237,7 +237,7 @@
         color: $black;
 
         h2 {
-          font-family: $gupter;
+          font-family: $playfair;
           font-weight: 600;
           font-size: 28px;
           margin-bottom: 15px;
@@ -249,7 +249,7 @@
         }
 
         p {
-          font-family: $gupter;
+          font-family: $playfair;
           font-weight: 500;
           font-size: 18px;
           margin-bottom: 10px;
@@ -257,7 +257,7 @@
         }
 
         button {
-          font-family: $gupter;
+          font-family: $playfair;
           font-weight: 600;
           font-size: 14px;
           padding: 12px 25px;
