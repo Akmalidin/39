@@ -1,16 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export const Header = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [scrollingUp, setScrollingUp] = useState(false);
+
   useEffect(() => {
-    AOS.init({ duration: 800 });
-  }, []);
+    AOS.init({ duration: 1000 });
+
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDelta = 15; 
+
+      if (Math.abs(currentScrollTop - lastScrollTop) <= scrollDelta) {
+        return; 
+      }
+
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 80) {
+        setIsSticky(false);
+        setScrollingUp(false);
+      } else if (currentScrollTop < lastScrollTop && currentScrollTop > 180) {
+        setIsSticky(true);
+        setScrollingUp(true);
+      }
+
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollTop]);
 
   return (
-    <header data-aos="fade-down">
+    <header className={`header ${isSticky ? "sticky" : ""} ${scrollingUp ? "scrolling-up" : ""}`} data-aos="fade-down">
       <div className="container">
         <div className="header__wrapper">
           <NavLink to={"/"}>
