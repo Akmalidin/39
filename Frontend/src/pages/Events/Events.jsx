@@ -3,6 +3,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import teach from "../../assets/images/Учитель2.jpg";
 import loadingi from "../../assets/images/loading.svg";
 import notfound from "../../assets/images/not-found.jpeg";
+import oops from "../../assets/images/oops.png";
 
 export const Events = () => {
   const [events, setEvents] = useState([]);
@@ -69,7 +70,7 @@ export const Events = () => {
   if (loading) {
     return (
       <div className="loading">
-        <img src={loadingi} alt="" />
+        <img src={loadingi} alt="Loading..." />
       </div>
     );
   }
@@ -77,14 +78,15 @@ export const Events = () => {
   if (error) {
     return (
       <div className="error">
-        <img src={notfound} alt="" />
+        <img src={notfound} alt="Error" />
+        <p>{error}</p>
       </div>
     );
   }
 
   if (events.length === 0) {
     return (
-      <div className="no-product">
+      <div className="no-events">
         <p>На данный момент нет доступных событий.</p>
       </div>
     );
@@ -125,30 +127,34 @@ export const Events = () => {
             <img src={teach} alt="Учитель" className="fairs-image" />
           </div>
         </div>
-        <div className="event__wrapper">
-          {filteredEvents.map((event) => (
-            <div
-              key={event.title}
-              className="event__card"
-              style={{
-                backgroundImage: `url(${
-                  event.image || "/src/assets/images/Mask.png"
-                })`,
-              }}
-            >
-              <h2>{event.title}</h2>
-              <h4>
-                Дата <span>{new Date(event.date).toLocaleDateString()}</span>
-              </h4>
-              <button
-                aria-label={`Смотреть ${event.title}`}
-                onClick={() => openModal(event)}
+        {filteredEvents.length === 0 ? (
+           <center> <img className="oops" src={oops} alt="не нйден" /></center>
+        ) : (
+          <div className="event__wrapper">
+            {filteredEvents.map((event) => (
+              <div
+                key={event.title}
+                className="event__card"
+                style={{
+                  backgroundImage: `url(${
+                    event.image || "/src/assets/images/Mask.png"
+                  })`,
+                }}
               >
-                Смотреть <FaArrowRightLong className="event__btn-icon" />
-              </button>
-            </div>
-          ))}
-        </div>
+                <h2>{event.title}</h2>
+                <h4>
+                  Дата <span>{new Date(event.date).toLocaleDateString()}</span>
+                </h4>
+                <button
+                  aria-label={`Смотреть ${event.title}`}
+                  onClick={() => openModal(event)}
+                >
+                  Смотреть <FaArrowRightLong className="event__btn-icon" />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
         {isModalOpen && selectedEvent && (
           <div className="modal" onClick={handleOutsideClick}>
             <div className="modal__content">

@@ -165,7 +165,7 @@
       background: $white;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: 280px;
-      height: 440px;
+      height: 420px;
       text-align: center;
 
       &:hover {
@@ -212,7 +212,7 @@
           transform: translate(-50%, -50%);
           opacity: 0;
           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-          color: #19a292;
+          color: #17b9a6;
         }
 
         &:hover .whatsapp-icon {

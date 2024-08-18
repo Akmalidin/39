@@ -4,6 +4,7 @@ import { IoLogoWhatsapp } from "react-icons/io5";
 import teach from "../../assets/images/teachers.jpg";
 import loadingi from "../../assets/images/loading.svg";
 import notfound from "../../assets/images/not-found.jpeg";
+import oops from "../../assets/images/oops.png"
 
 const formatPhoneNumber = (number) => number.replace(/\D/g, "");
 
@@ -55,14 +56,6 @@ export const Teachers = () => {
     return (
       <div className="error">
         <img src={notfound} alt="Ошибка при загрузке" />
-      </div>
-    );
-  }
-
-  if (filteredTeachers.length === 0) {
-    return (
-      <div className="no-product">
-        <p>На данный момент нет доступных учителей.</p>
       </div>
     );
   }
@@ -129,8 +122,12 @@ export const Teachers = () => {
                   </a>
                 </div>
               ))
+            ) : searchTerm ? (
+                <img className="oops" src={oops} alt="не нйден" />
             ) : (
-              <p className="teachers__no-results">Учителя не найдены</p>
+              <div className="no-product">
+                <p>На данный момент нет доступных учителей.</p>
+              </div>
             )}
           </div>
         </div>
