@@ -69,15 +69,21 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       transform: rotate(45deg);
-      width: 125px;
-      height: 125px;
+      width: 145px;
+      height: 145px;
+      padding: 60px;
       position: relative;
 
       .our__item-wrapper {
         position: absolute;
-        left: 30%;
-        top: 7%;
+        left: 33%;
+        top: 12%;
         transform: rotate(-45deg);
+        bottom: 8px;
+      }
+      .our__ittem__info{
+        position: relative;
+        bottom: 8px;
       }
 
       &:hover {
@@ -101,7 +107,7 @@
 
       .our__count {
         font-family: $playfair;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: bold;
         color: #555;
         margin: 8px 0;
@@ -116,6 +122,12 @@
         color: #333;
         text-align: center;
         transition: color 0.3s ease;
+      }
+
+      .our__doptitle {
+        position: relative;
+        bottom: 5px;
+        right: 3px;
       }
 
       &:hover .our__icon {

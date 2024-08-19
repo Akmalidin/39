@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { IoLogoWhatsapp } from "react-icons/io5";
+import { GrContactInfo } from "react-icons/gr";
 import teach from "../../assets/images/teachers.jpg";
 import loadingi from "../../assets/images/loading.svg";
 import notfound from "../../assets/images/not-found.jpeg";
-import oops from "../../assets/images/oops.png"
-
-const formatPhoneNumber = (number) => number.replace(/\D/g, "");
+import oops from "../../assets/images/oops.png";
 
 export const Teachers = () => {
   const [teachers, setTeachers] = useState([]);
@@ -100,30 +98,30 @@ export const Teachers = () => {
             {filteredTeachers.length > 0 ? (
               filteredTeachers.map((teach) => (
                 <div key={teach.id} className="teacher__card">
-                  <a
-                    href={`https://wa.me/${formatPhoneNumber(
-                      teach.phone_number
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="teacher__link"
+                  <div
+                    className="teacher__image"
+                    onClick={() => {
+                      if (teach.pdf_file) {
+                        window.open(teach.pdf_file, "_blank");
+                      } else {
+                        alert("PDF файл не найден.");
+                      }
+                    }}
                   >
-                    <div className="teacher__image">
-                      <img
-                        src={teach.photo || "path-to-your-placeholder-image"}
-                        alt={teach.name}
-                      />
-                      <IoLogoWhatsapp className="whatsapp-icon" size={40} />
-                    </div>
-                    <div className="teacher__info">
-                      <h3>{teach.name}</h3>
-                      <p>{teach.the_teacher_of}</p>
-                    </div>
-                  </a>
+                    <img
+                      src={teach.photo || "path-to-your-placeholder-image"}
+                      alt={teach.name}
+                    />
+                    <GrContactInfo className="whatsapp-icon" size={40} />
+                  </div>
+                  <div className="teacher__info">
+                    <h3>{teach.name}</h3>
+                    <p>{teach.the_teacher_of}</p>
+                  </div>
                 </div>
               ))
             ) : searchTerm ? (
-                <img className="oops" src={oops} alt="не нйден" />
+              <img className="oops" src={oops} alt="не найден" />
             ) : (
               <div className="no-product">
                 <p>На данный момент нет доступных учителей.</p>

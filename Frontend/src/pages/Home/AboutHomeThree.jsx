@@ -99,11 +99,13 @@ export const AboutHomeThree = () => {
           </div>
           <div className="our__item">
             <div className="our__item-wrapper">
-              <div className="our__icon-wrapper">
+             <div className="our__ittem__info">
+             <div className="our__icon-wrapper">
                 <MdMeetingRoom className="our__icon" />
               </div>
               <p ref={roomRef} className="our__count">0</p>
-              <h2 className="our__title">Комнаты</h2>
+             </div>
+              <h2 className="our__title our__doptitle">Кабинеты</h2>
             </div>
           </div>
         </div>

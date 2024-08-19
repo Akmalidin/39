@@ -3,6 +3,7 @@ import Logo from "../../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Translate from "../Translate";
 
 export const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -13,11 +14,12 @@ export const Header = () => {
     AOS.init({ duration: 1000 });
 
     const handleScroll = () => {
-      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollDelta = 15; 
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollDelta = 15;
 
       if (Math.abs(currentScrollTop - lastScrollTop) <= scrollDelta) {
-        return; 
+        return;
       }
 
       if (currentScrollTop > lastScrollTop && currentScrollTop > 80) {
@@ -39,7 +41,12 @@ export const Header = () => {
   }, [lastScrollTop]);
 
   return (
-    <header className={`header ${isSticky ? "sticky" : ""} ${scrollingUp ? "scrolling-up" : ""}`} data-aos="fade-down">
+    <header
+      className={`header ${isSticky ? "sticky" : ""} ${
+        scrollingUp ? "scrolling-up" : ""
+      }`}
+      data-aos="fade-down"
+    >
       <div className="container">
         <div className="header__wrapper">
           <NavLink to={"/"}>
@@ -48,7 +55,7 @@ export const Header = () => {
           <nav>
             <ul>
               <li>
-                <NavLink className="header__nav-item" exact to={"/"}>
+                <NavLink className="header__nav-item" to={"/"}>
                   Главная
                 </NavLink>
               </li>
@@ -72,6 +79,8 @@ export const Header = () => {
                   Контакты
                 </NavLink>
               </li>
+
+                <Translate />
             </ul>
           </nav>
         </div>

@@ -25,7 +25,7 @@ header {
       ul {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 30px;
         padding: 0;
         margin: 0;
         list-style: none;
@@ -65,6 +65,23 @@ header {
             &.active::after {
               transform: scaleX(1);
               transform-origin: left;
+            }
+          }
+
+          .translate-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: $black;
+            transition: color 0.3s;
+
+            &:hover {
+              color: $light__green;
+            }
+
+            svg {
+              width: 24px;
+              height: 24px;
             }
           }
         }
