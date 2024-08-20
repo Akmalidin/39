@@ -10,7 +10,7 @@ footer {
     align-items: start;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 50px;
   }
 
   .footer__logo-section {
@@ -137,6 +137,136 @@ footer {
 
       &:hover .footer__icon {
         color: $white;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    .footer__wrapper {
+      gap: 30px;
+    }
+
+    .footer__nav ul {
+      gap: 12px;
+      margin-top: 10px;
+
+      li {
+        .header__nav-item {
+          font-size: 12px;
+        }
+      }
+    }
+
+    .footer__logo-section .footer__logo img {
+      width: 90px;
+    }
+
+    .footer__contact h3 {
+      font-size: 14px;
+    }
+
+    .footer__contact p {
+      font-size: 11px;
+    }
+
+    .footer__social-links {
+      gap: 8px;
+
+      a {
+        width: 30px;
+        height: 30px;
+
+        .footer__icon {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 360px) {
+    .footer__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    .footer__nav ul {
+      gap: 10px;
+      margin-top: 10px;
+      li {
+        .header__nav-item {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .footer__logo-section .footer__logo img {
+      width: 90px;
+    }
+
+    .footer__contact h3 {
+      font-size: 12px;
+    }
+
+    .footer__contact p {
+      font-size: 9px;
+    }
+
+    .footer__social-links {
+      gap: 8px;
+
+      a {
+        width: 25px;
+        height: 25px;
+
+        .footer__icon {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 340px) {
+    .footer__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 0 auto;
+      gap: 10px;
+    }
+
+    .footer__nav ul {
+      gap: 8px;
+      margin-top: 8px;
+      li {
+        .header__nav-item {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .footer__logo-section .footer__logo img {
+      width: 80px;
+    }
+
+    .footer__contact h3 {
+      font-size: 11px;
+    }
+
+    .footer__contact p {
+      font-size: 9px;
+    }
+
+    .footer__social-links {
+margin-right: 30px;
+      a {
+        width: 20px;
+        height: 20px;
+
+        .footer__icon {
+          font-size: 12px;
+        }
       }
     }
   }

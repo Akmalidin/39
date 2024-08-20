@@ -53,15 +53,17 @@
         max-width: 500px;
         padding: 12px 20px;
         font-family: $playfair;
-        font-weight: 500;
-        font-size: 16px;
         letter-spacing: 1px;
+        font-weight: 400;
+        font-size: 16px;
         border: 1px solid $light-gray;
         border-radius: 50px 0 0 50px;
         outline: none;
         transition: all 0.2s ease-in-out;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 40px 0;
+        position: relative;
+        left: 30px;
 
         &:focus {
           border-color: $light__green;
@@ -73,17 +75,19 @@
       .teachers__search-button {
         padding: 13px 20px;
         font-family: $playfair;
-        font-weight: 500;
+        font-weight: 400;
         font-size: 16px;
         border: none;
-        border-radius: 0 50px 50px 0;
+        border-radius: 50px;
         background-color: $primary-color;
         color: $white;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        position: relative;
+        right: 30px;
 
         &:hover {
-          background-color: darken($light__green, 10%);
+          background-color: darken($light__green, 0%);
         }
       }
     }

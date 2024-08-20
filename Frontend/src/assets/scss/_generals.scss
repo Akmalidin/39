@@ -89,3 +89,45 @@ a {
   object-fit: contain;
   margin: 0 auto;
 }
+
+@media (max-width: 1250px) {
+  .container {
+    max-width: 1050px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .container {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}

@@ -9,7 +9,6 @@ const ContactInfo = () => {
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/contact/contacts/")
       .then(response => {
-        // Проверяем, что массив не пуст, и получаем первый контакт
         if (response.data.length > 0) {
           setContact(response.data[0]);
         }
@@ -19,7 +18,6 @@ const ContactInfo = () => {
       });
   }, []);
 
-  // Проверяем, загружены ли данные
   if (!contact) {
     return <p>Загрузка...</p>;
   }

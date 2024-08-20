@@ -104,7 +104,7 @@ export const Galareya = () => {
       <div className="container">
         <h2>Наша галерея</h2>
         <div className="mosaic-gallery">
-          {images.slice(0, 12).map((image, index) => (
+          {images.slice(0, 8).map((image, index) => (
             <div
               key={index}
               className={`mosaic-item item-${index + 1}`}

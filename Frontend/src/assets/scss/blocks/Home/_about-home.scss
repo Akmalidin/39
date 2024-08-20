@@ -4,20 +4,17 @@
   text-align: center;
   box-shadow: 0 2px 9px rgba(0, 0, 0, 0.05); 
 
-
   h1 {
     font-family: $playfair;
-    font-size: 36px;
+    font-size: 2.25rem; // Используем единицы rem для лучшей масштабируемости
     color: $black;
     margin-bottom: 20px;
     font-weight: 700;
-
-    
   }
 
   p {
     font-family: $playfair;
-    font-size: 18px;
+    font-size: 1.125rem; // Используем единицы rem для лучшей масштабируемости
     color: #555;
     margin-bottom: 20px;
     line-height: 1.8;
@@ -27,7 +24,7 @@
 
   .about-home__link {
     font-family: $playfair;
-    font-size: 18px;
+    font-size: 1.125rem; // Используем единицы rem для лучшей масштабируемости
     font-weight: 500;
     color: #32a852;
     text-decoration: none;
@@ -58,6 +55,41 @@
 
     &:hover::after {
       transform: scaleX(1);
+    }
+  }
+}
+
+// Адаптивные стили для меньших экранов
+@media (max-width: 1100px) {
+  .about-home {
+    h1 {
+      font-size: 1.75rem; // Уменьшил размер шрифта для заголовка
+    }
+
+    p {
+      font-size: 1rem; // Уменьшил размер шрифта для параграфа
+    }
+
+    .about-home__link {
+      font-size: 1rem; // Уменьшил размер шрифта для ссылок
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-home {
+    padding: 30px 15px; // Уменьшил отступы для мобильных устройств
+
+    h1 {
+      font-size: 1.5rem; // Дополнительное уменьшение размера шрифта для заголовка
+    }
+
+    p {
+      font-size: 0.875rem; // Дополнительное уменьшение размера шрифта для параграфа
+    }
+
+    .about-home__link {
+      font-size: 0.875rem; // Дополнительное уменьшение размера шрифта для ссылок
     }
   }
 }

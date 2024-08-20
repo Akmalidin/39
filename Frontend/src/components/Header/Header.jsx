@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
@@ -9,13 +9,13 @@ export const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingUp, setScrollingUp] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
 
     const handleScroll = () => {
-      const currentScrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
       const scrollDelta = 15;
 
       if (Math.abs(currentScrollTop - lastScrollTop) <= scrollDelta) {
@@ -40,11 +40,11 @@ export const Header = () => {
     };
   }, [lastScrollTop]);
 
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <header
-      className={`header ${isSticky ? "sticky" : ""} ${
-        scrollingUp ? "scrolling-up" : ""
-      }`}
+      className={`header ${isSticky ? "sticky" : ""} ${scrollingUp ? "scrolling-up" : ""}`}
       data-aos="fade-down"
     >
       <div className="container">
@@ -52,7 +52,12 @@ export const Header = () => {
           <NavLink to={"/"}>
             <img src={Logo} alt="School Logo" />
           </NavLink>
-          <nav>
+          <div className={`hamburger-menu ${menuOpen ? "open" : ""}`} onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+          <nav className={menuOpen ? "active" : ""}>
             <ul>
               <li>
                 <NavLink className="header__nav-item" to={"/"}>
@@ -79,8 +84,9 @@ export const Header = () => {
                   Контакты
                 </NavLink>
               </li>
-
+              <li>
                 <Translate />
+              </li>
             </ul>
           </nav>
         </div>

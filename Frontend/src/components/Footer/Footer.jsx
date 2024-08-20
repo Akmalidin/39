@@ -3,8 +3,9 @@ import axios from "axios";
 import Logo from "../../assets/images/logo_column.png";
 import { NavLink } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaPhoneAlt } from "react-icons/fa";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { SlSocialFacebook } from "react-icons/sl";
 import { FaLocationDot } from "react-icons/fa6";
-import { RiTiktokFill } from "react-icons/ri";
 import { FiTwitter } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 
@@ -122,11 +123,11 @@ export const Footer = () => {
                 <FaInstagram className="footer__icon" />
               </a>
               <a
-                href={links.link_tiktok}
+                href={links.link_youtube}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <RiTiktokFill className="footer__icon" />
+                <AiOutlineYoutube className="footer__icon" />
               </a>
             </div>
             <div className="footer__icon">
@@ -135,7 +136,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaFacebookF className="footer__icon" />
+                <SlSocialFacebook className="footer__icon" />
               </a>
               <a
                 href={links.link_twitter}

@@ -32,7 +32,6 @@ const Translate = () => {
         fontFamily: "'Arial', sans-serif",
       });
 
-      // Hide unnecessary elements
       const unnecessaryElements = widgetEl.querySelectorAll("img, .goog-te-gadget-icon");
       unnecessaryElements.forEach((el) => (el.style.display = "none"));
 
@@ -47,7 +46,6 @@ const Translate = () => {
       applyStylesToTranslateWidget();
     };
 
-    // Inject the Google Translate script if not already loaded
     if (!window.googleTranslateElementInit) {
       window.googleTranslateElementInit = googleTranslateElementInit;
 
@@ -59,7 +57,6 @@ const Translate = () => {
       googleTranslateElementInit();
     }
 
-    // Monitor widget changes for any layout issues
     const observer = new MutationObserver(() => applyStylesToTranslateWidget());
 
     if (googleTranslateRef.current) {
@@ -70,7 +67,6 @@ const Translate = () => {
   }, []);
 
   useEffect(() => {
-    // Style adjustments to hide the top banner frame globally
     const style = document.createElement("style");
     style.innerHTML = `
       .goog-te-banner-frame.skiptranslate {

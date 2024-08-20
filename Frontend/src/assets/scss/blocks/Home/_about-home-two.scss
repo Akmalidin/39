@@ -4,7 +4,7 @@
   text-align: center;
 
   h2 {
-    font-family: $playfair;
+    font-family: $playfair, serif;
     font-weight: 500;
     font-size: 2.5rem;
     color: $black;
@@ -12,7 +12,7 @@
   }
 
   p {
-    font-family: $playfair;
+    font-family: $playfair, serif;
     font-weight: 400;
     font-size: 1.1rem;
     color: $gray;
@@ -22,8 +22,8 @@
   }
 
   .about-home-two__link {
-    font-family: $playfair;
-    font-size: 19px;
+    font-family: $playfair, serif;
+    font-size: 1.1875rem;
     font-weight: 400;
     color: $primary-color;
     text-decoration: none;
@@ -53,6 +53,42 @@
 
     &:hover::after {
       transform: scaleX(1);
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .about-home-two {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .about-home-two__link {
+      font-size: 1rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .about-home-two {
+    padding: 40px 15px !important;
+
+    h2 {
+      font-weight: 600 !important;
+      font-size: 1.8rem !important;
+    }
+
+    p {
+      font-weight: 400 !important;
+      font-size: 1rem !important;
+      max-width: 500px !important;
+    }
+
+    .about-home-two__link {
+      font-size: 1rem !important;
     }
   }
 }
