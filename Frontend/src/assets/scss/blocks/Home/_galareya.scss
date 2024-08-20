@@ -123,9 +123,13 @@
     .modal-content {
       max-width: 90%;
       max-height: 80%;
+      object-fit: cover;
+      object-position: center;
+      image-rendering: crisp-edges;
       border-radius: 8px;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     }
+    
 
     .previous-button,
     .next-button {
@@ -266,8 +270,8 @@
       }
       .mosaic-gallery {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 100px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
         gap: 1rem;
 
         .mosaic-item {

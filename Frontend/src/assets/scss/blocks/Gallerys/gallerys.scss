@@ -1,188 +1,246 @@
 .gallerys {
-    .gallerys__header {
-      width: 100%;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #f9f9f9;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      position: relative;
-  
-      .back-button {
-        position: absolute;
-        right: calc(50% + 621px);
-        background: none;
-        border: none;
-        font-size: 28px;
-        font-weight: 600;
-        font-family: $playfair;
-        color: $light__green;
-        cursor: pointer;
-        transition: color 0.3s ease;
-        margin-top: 8px;
-  
-        &:hover {
-          color: darken($light__green, 10%);
-        }
-      }
-  
-      h2 {
-        font-family: $playfair;
-        font-size: 25px;
-        color: #2c3e50;
-        font-weight: 700;
-        position: relative;
-        text-align: center;
-        margin: 0;
-        width: 60%;
-        transition: color 0.3s ease;
-        margin: 0 auto;
-  
-        &:hover {
-          color: $light__green;
-        }
-  
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: -3px;
-          height: 2px;
-          background-color: $light__green;
-          transform: scaleX(0);
-          transition: transform 0.5s ease-in-out;
-          transform-origin: center;
-        }
-  
-        &:hover::after {
-          transform: scaleX(1);
-          transform-origin: center;
-        }
-      }
-    }
-  
-    .mosaic-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      margin: 60px 0;
-  
-      .mosaic-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.3s ease;
-        }
-  
-        .overlay {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.4);
-          opacity: 0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: opacity 0.3s ease;
-  
-          .icon {
-            color: $white;
-            font-size: 30px;
-          }
-        }
-  
-        &:hover {
-          transform: scale(1.05);
-  
-          .overlay {
-            opacity: 1;
-          }
-        }
-      }
-    }
-  
-    .modal {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      z-index: 1000;
+  .gallerys__header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .back-button {
+      position: absolute;
+      right: calc(50% + 621px);
+      background: none;
+      border: none;
+      font-size: 28px;
+      font-weight: 600;
+      font-family: $playfair;
+      color: $light__green;
       cursor: pointer;
-  
-      .close {
+      transition: color 0.3s ease;
+      margin-top: 8px;
+
+      &:hover {
+        color: darken($light__green, 10%);
+      }
+    }
+
+    h2 {
+      font-family: $playfair;
+      font-size: 25px;
+      color: #2c3e50;
+      font-weight: 700;
+      position: relative;
+      text-align: center;
+      margin: 0;
+      width: 60%;
+      transition: color 0.3s ease;
+      margin: 0 auto;
+
+      &:hover {
+        color: $light__green;
+      }
+
+      &::after {
+        content: "";
         position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 32px;
-        color: $white;
-        cursor: pointer;
-        transition: color 0.3s ease, transform 0.3s ease;
-  
-        &:hover {
-          color: #e74c3c;
-          transform: scale(1.2);
-        }
+        left: 0;
+        right: 0;
+        bottom: -3px;
+        height: 2px;
+        background-color: $light__green;
+        transform: scaleX(0);
+        transition: transform 0.5s ease-in-out;
+        transform-origin: center;
       }
-  
-      .modal-content {
-        max-width: 90%;
-        max-height: 80%;
-        border-radius: 8px;
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        transition: box-shadow 0.3s ease;
-  
-        &:hover {
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-        }
+
+      &:hover::after {
+        transform: scaleX(1);
+        transform-origin: center;
       }
-  
-      .previous-button,
-      .next-button {
+    }
+  }
+
+  .mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 60px 0;
+
+    .mosaic-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        opacity: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 35px;
-        color: $white;
-        background-color: rgba(0, 0, 0, 0.5);
-        border: none;
-        border-radius: 50%;
-        padding: 5px;
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-  
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.7);
-          transform: translateY(-50%) scale(1.1);
+        transition: opacity 0.3s ease;
+
+        .icon {
+          color: $white;
+          font-size: 30px;
         }
       }
-  
-      .previous-button {
-        left: 20px;
-      }
-  
-      .next-button {
-        right: 20px;
+
+      &:hover {
+        transform: scale(1.05);
+
+        .overlay {
+          opacity: 1;
+        }
       }
     }
-  
+  }
+
+  .modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    cursor: pointer;
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 32px;
+      color: $white;
+      cursor: pointer;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: #e74c3c;
+        transform: scale(1.2);
+      }
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 80%;
+      object-fit: cover;
+      object-position: center;
+      image-rendering: crisp-edges;
+      border-radius: 8px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .previous-button,
+    .next-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      color: $white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 50%;
+      padding: 5px;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        transform: translateY(-50%) scale(1.1);
+      }
+    }
+
+    .previous-button {
+      left: 20px;
+    }
+
+    .next-button {
+      right: 20px;
+    }
+  }
+
+  @media (max-width: 1050px) {
+    .gallerys__header {
+      .back-button {
+        right: auto;
+        left: 20px;
+      }
+
+      h2 {
+        width: 80%;
+        font-size: 22px;
+      }
+    }
+    .mosaic-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 60px 20px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .gallerys__header {
+      height: 60px;
+
+      .back-button {
+        font-size: 20px;
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: 18px;
+        width: 100%;
+      }
+    }
+
+    .mosaic-gallery {
+      gap: 0.5rem;
+      margin: 30px 10px;
+
+      .mosaic-item {
+        border-radius: 8px;
+
+        .overlay .icon {
+          font-size: 24px;
+        }
+      }
+    }
+
+    .modal {
+      .close {
+        font-size: 24px;
+      }
+
+      .previous-button,
+      .next-button {
+        font-size: 18px;
+        padding: 3px;
+      }
+    }
+  }
 }

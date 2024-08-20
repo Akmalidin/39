@@ -128,10 +128,12 @@ export const Events = () => {
           </div>
         </div>
         {filteredEvents.length === 0 ? (
-           <center> <img className="oops" src={oops} alt="не нйден" /></center>
+          <center>
+            <img className="oops" src={oops} alt="не найдено" />
+          </center>
         ) : (
           <div className="event__wrapper">
-            {filteredEvents.map((event) => (
+            {filteredEvents.slice(0, 6).map((event) => (
               <div
                 key={event.title}
                 className="event__card"

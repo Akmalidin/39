@@ -9,7 +9,6 @@
     letter-spacing: 1px;
   }
   .contact-hero__reviews {
-    flex: 1;
     width: 620px;
     max-height: 300px;
     overflow-y: auto;
@@ -59,6 +58,141 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+  .contact-review {
+    h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .contact-hero__reviews {
+      width: 460px;
+      gap: 15px;
+
+      blockquote {
+        p {
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        cite {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .contact-review {
+    h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .contact-hero__reviews {
+      width: 460px;
+      gap: 15px;
+
+      blockquote {
+        p {
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        cite {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .contact-review {
+    h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .contact-hero__reviews {
+      width: 400px;
+      gap: 15px;
+
+      blockquote {
+        p {
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        cite {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .contact-review {
+    h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .contact-hero__reviews {
+      width: 350px;
+      gap: 15px;
+
+      blockquote {
+        p {
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        cite {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-review {
+    h3 {
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .contact-hero__reviews {
+      width: 280px;
+      gap: 15px;
+
+      blockquote {
+        p {
+          font-size: 18px;
+          font-weight: 400;
+        }
+
+        cite {
+          font-size: 16px;
+          font-weight: 400;
+          margin-top: 0.5rem;
+        }
+      }
     }
   }
 }

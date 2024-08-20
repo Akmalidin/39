@@ -1,6 +1,6 @@
 .her {
   padding: 30px;
-  
+
   h2 {
     font-family: $playfair;
     font-weight: 600;
@@ -75,3 +75,35 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .her {
+    padding: 15px;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .her__left__right {
+      flex-direction: column;
+      padding: 20px 0;
+
+      .her__left {
+        display: none;
+      }
+
+      .her__right-wrapper {
+        width: 100%;
+        gap: 16px;
+      }
+
+      .her__right-top,
+      .her__right-bottom {
+        width: 100%;
+        height: 180px;
+      }
+    }
+  }
+}
+
