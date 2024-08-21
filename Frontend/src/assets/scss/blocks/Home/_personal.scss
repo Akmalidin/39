@@ -313,16 +313,16 @@
     
       .personal__card {
         scroll-snap-align: start; 
-        width: 300px; 
+        width: 270px; 
         flex: 0 0 auto; 
       }
     }
 
     .personal__card {
-      width: 300px;
+      width: 240px;
 
       .personal__image img {
-        height: 310px;
+        height: 270px;
       }
 
       .personal__info {
@@ -387,24 +387,25 @@
     
       .personal__card {
         scroll-snap-align: start; 
-        width: 270px; 
+        width: 250px; 
         flex: 0 0 auto; 
       }
     }
 
     .personal__card {
-      width: 300px;
+      width: 250px;
+      margin: 0 auto;
 
       .personal__image img {
-        height: 280px;
+        height: 260px;
       }
 
       .personal__info {
-        padding: 25px 15px;
+        padding: 25px 0;
         margin: 0 auto;
 
         h3 {
-          font-size: 22px;
+          font-size: 18px;
           margin: 0 auto;
         }
 

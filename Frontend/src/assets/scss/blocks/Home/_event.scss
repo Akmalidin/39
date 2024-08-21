@@ -1,5 +1,5 @@
 .event {
-  padding: 60px 20px 80px 20px;
+  padding: 3rem 1.25rem 5rem 1.25rem;
   background: linear-gradient(135deg, #f5f5f5 30%, #e0e0e0);
   text-align: center;
 
@@ -7,11 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 40px 0;
+    margin: 2.5rem 0;
 
     h2 {
       font-family: $playfair;
-      font-size: 36px;
+      font-size: 2.25rem;
       color: $black;
       font-weight: 700;
       position: relative;
@@ -23,16 +23,16 @@
     h3 {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
       font-family: $playfair;
-      font-size: 20px;
+      font-size: 1.25rem;
       color: $primary-color;
       font-weight: 500;
       position: relative;
       cursor: pointer;
 
       .event__icon {
-        font-size: 16px;
+        font-size: 1rem;
       }
 
       &:hover {
@@ -44,8 +44,8 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: -3px;
-        height: 2px;
+        bottom: -0.1875rem;
+        height: 0.125rem;
         background-color: $light__green;
         transform: scaleX(0);
         transition: transform 0.5s ease-in-out;
@@ -61,14 +61,14 @@
 
   .event__wrapper {
     display: flex;
-    gap: 30px;
+    gap: 1.875rem;
     overflow-x: auto;
-    padding-bottom: 20px;
-    padding-left: 10px;
+    padding-bottom: 1.25rem;
+    padding-left: 0.625rem;
 
     &::-webkit-scrollbar {
-      width: 5px;
-      height: 10px;
+      width: 0.3125rem;
+      height: 0.625rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -86,12 +86,12 @@
     }
 
     .event__card {
-      padding: 20px 40px;
-      height: 240px;
+      padding: 1.25rem 2.5rem;
+      height: 15rem;
       background-size: cover;
-      border-radius: 20px;
+      border-radius: 1.25rem;
       position: relative;
-      margin-top: 40px;
+      margin-top: 2.5rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -100,11 +100,11 @@
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
       white-space: nowrap;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.2);
 
       &:hover {
-        transform: scale(1.05) translateY(-10px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05) translateY(-0.625rem);
+        box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.3);
       }
 
       &::before {
@@ -115,7 +115,7 @@
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.4);
-        border-radius: 20px;
+        border-radius: 1.25rem;
         z-index: 1;
         clip-path: circle(0% at 50% 50%);
         transition: clip-path 0.5s ease-in-out;
@@ -135,12 +135,12 @@
       h2 {
         font-family: $playfair;
         font-weight: 600;
-        font-size: 30px;
-        margin-bottom: 10px;
+        font-size: 1.875rem;
+        margin-bottom: 0.625rem;
         text-transform: lowercase;
         letter-spacing: 1px;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
-        width: 300px;
+        text-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.6);
+        width: 18.75rem;
         text-align: center;
         margin: 0 auto;
         white-space: nowrap;
@@ -154,39 +154,39 @@
       h4 {
         font-family: $playfair;
         font-weight: 500;
-        font-size: 22px;
-        margin-bottom: 20px;
+        font-size: 1.375rem;
+        margin-bottom: 1.25rem;
 
         span {
           font-family: $playfair;
           font-weight: bold;
           color: $light-gray;
-          text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+          text-shadow: 0.0625rem 0.0625rem 0.1875rem rgba(0, 0, 0, 0.5);
         }
       }
 
       button {
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 12px 25px;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5625rem;
         background: linear-gradient(45deg, $primary-color, $secondary-color);
         border: none;
-        border-radius: 12px;
+        border-radius: 0.75rem;
         color: $white;
         cursor: pointer;
         font-family: $playfair;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 1rem;
         transition: transform 0.3s, box-shadow 0.3s;
 
         &:hover {
           transform: scale(1.1);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.2);
         }
 
         .event__btn-icon {
-          font-size: 16px;
+          font-size: 1rem;
           transition: transform 0.3s, color 0.3s;
         }
       }
@@ -211,22 +211,22 @@
     &__content {
       display: flex;
       background-color: $white;
-      border-radius: 20px;
+      border-radius: 1.25rem;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-      max-width: 900px;
+      box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.5);
+      max-width: 56.25rem;
       width: 100%;
 
       .modal__image {
         width: 80%;
         background-size: cover;
         background-position: center;
-        border-radius: 20px 0 0 20px;
+        border-radius: 1.25rem 0 0 1.25rem;
         transition: transform 0.5s ease-in-out;
       }
 
       .modal__info {
-        padding: 80px;
+        padding: 5rem;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -236,8 +236,8 @@
         h2 {
           font-family: $playfair;
           font-weight: 600;
-          font-size: 28px;
-          margin-bottom: 15px;
+          font-size: 1.75rem;
+          margin-bottom: 0.9375rem;
           color: $black;
           text-transform: lowercase;
           &::first-letter {
@@ -248,19 +248,19 @@
         p {
           font-family: $playfair;
           font-weight: 500;
-          font-size: 18px;
-          margin-bottom: 10px;
+          font-size: 1.125rem;
+          margin-bottom: 0.625rem;
           color: $gray;
         }
 
         button {
           font-family: $playfair;
           font-weight: 600;
-          font-size: 14px;
-          padding: 12px 25px;
+          font-size: 0.875rem;
+          padding: 0.75rem 1.5625rem;
           background: $primary-color;
           border: none;
-          border-radius: 10px;
+          border-radius: 0.625rem;
           color: $white;
           cursor: pointer;
           transition: background-color 0.3s;
@@ -272,293 +272,59 @@
       }
     }
   }
-}
 
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 1100px) {
-  .event {
-    padding: 20px 10px;
-
-    .event__head {
-      h2 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 18px;
-      }
-    }
-
+  @media (max-width: 768px) {
     .event__wrapper {
-      gap: 20px;
-      padding-left: 0;
-
-      &::-webkit-scrollbar {
-        width: 5px;
-        height: 7px;
-      }
-
-      .event__card {
-        padding: 40px 30px;
-        height: auto;
-        margin-top: 20px;
-
-        &:active {
-          transform: scale(1.05) translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-          font-size: 24px;
-        }
-
-        h4 {
-          font-size: 20px;
-        }
-
-        button {
-          font-size: 14px;
-          padding: 10px 20px;
-        }
-      }
+      display: block;
+      padding: 0;
+      gap: 0.9375rem;
+      overflow: hidden;
     }
 
-    .modal {
-      padding: 10px;
+    .event__card {
+      padding: 1rem;
+      margin: 1rem 0;
+      height: auto;
 
-      &__content {
-        flex-direction: column;
-        max-width: 70%;
-
-        .modal__image {
-          display: none;
-        }
-
-        .modal__info {
-          padding: 20px;
-
-          h2 {
-            font-size: 24px;
-          }
-
-          p {
-            font-size: 16px;
-          }
-
-          button {
-            font-size: 12px;
-            padding: 10px 20px;
-          }
-        }
+      &:hover {
+        transform: none;
+        box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.3);
       }
+
+      &::before {
+        clip-path: circle(50% at 50% 50%);
+      }
+      
+      &:hover::before {
+        clip-path: circle(50% at 50% 50%);
+      }
+      
     }
   }
-}
 
-@media (max-width: 900px) {
-  .event {
-    padding: 10px 5px;
-
-    .event__head {
-      h2 {
-        font-size: 28px;
-      }
-
-      h3 {
-        font-size: 18px;
-      }
+  @media (max-width: 480px) {
+    .event__head h2 {
+      font-size: 1.5rem;
     }
 
-    .event__wrapper {
-      gap: 20px;
-      padding-left: 0;
-
-      &::-webkit-scrollbar {
-        width: 5px;
-        height: 7px;
-      }
-
-      .event__card {
-        padding: 30px 20px;
-        height: auto;
-        margin-top: 20px;
-
-        &:active {
-          transform: scale(1.05) translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-          font-size: 22px;
-        }
-
-        h4 {
-          font-size: 18px;
-        }
-
-        button {
-          font-size: 12px;
-          padding: 8px 18px;
-        }
-
-        .event__btn-icon {
-          font-size: 14px;
-          transition: transform 0.3s, color 0.3s;
-        }
-      }
+    .event__card h2 {
+      font-size: 0.8rem;
+      width: 12rem;
     }
 
-    .modal {
-      padding: 10px;
-
-      &__content {
-        flex-direction: column;
-        max-width: 60%;
-      }
+    .modal__info {
+      padding: 1rem;
     }
   }
-}
 
-
-@media (max-width: 650px) {
-  .event {
-    padding: 10px 5px;
-
-    .event__head {
-      h2 {
-        font-size: 24px;
-      }
-
-      h3 {
-        font-size: 15px;
-      }
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
     }
-
-    .event__wrapper {
-      gap: 20px;
-      padding-left: 0;
-
-      &::-webkit-scrollbar {
-        width: 5px;
-        height: 7px;
-      }
-
-      .event__card {
-        padding: 15px 7px;
-        height: auto;
-        margin-top: 20px;
-        border-radius: 10px;
-
-        &:active {
-          transform: scale(1.05) translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-          font-size: 19px;
-        }
-
-        h4 {
-          font-size: 15px;
-        }
-
-        button {
-          font-size: 10px;
-          padding: 4px 10px;
-          font-size: 10px;
-          border-radius: 5px;
-        }
-
-        .event__btn-icon {
-          font-size: 8px !important;
-          transition: transform 0.3s, color 0.3s;
-        }
-      }
-    }
-
-    .modal {
-      padding: 10px;
-
-      &__content {
-        flex-direction: column;
-        max-width: 60%;
-      }
-    }
-  }
-}
-
-
-
-@media (max-width: 500px) {
-  .event {
-    padding: 10px 5px;
-
-    .event__head {
-      h2 {
-        font-size: 22px;
-      }
-
-      h3 {
-        font-size: 11px;
-      }
-    }
-
-    .event__wrapper {
-      gap: 20px;
-      padding-left: 0;
-
-      &::-webkit-scrollbar {
-        width: 5px;
-        height: 7px;
-      }
-
-      .event__card {
-        padding:18px 5px;
-        height: auto;
-        margin-top: 20px;
-
-        &:active {
-          transform: scale(1.05) translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        h2 {
-          font-size: 20px;
-        }
-
-        h4 {
-          font-size: 16px;
-        }
-
-        button {
-          font-size: 8px;
-          padding: 4px 12px;
-        }
-
-        .event__btn-icon {
-          font-size: 12px;
-          transition: transform 0.3s, color 0.3s;
-        }
-      }
-    }
-
-    .modal {
-      padding: 10px;
-
-      &__content {
-        flex-direction: column;
-        max-width: 70%;
-      }
+    to {
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
