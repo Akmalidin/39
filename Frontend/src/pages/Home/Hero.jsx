@@ -22,7 +22,14 @@ export const Hero = () => {
       <div className="container">
         <div className="hero__wrapper">
           <div data-aos="zoom-in-right" className="hero__info">
-            <h1>Образование — ключ к успеху</h1>
+            <h1>Образование — <i>ключ к успеху</i></h1>
+            <img
+              data-aos="fade-down"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+              src={Hero_img}
+              alt="Учитель"
+            />
             <h4>Каждый урок — шаг к достижению вашей мечты.</h4>
             <div className="hero__info-btns">
               <NavLink to={"/about"}>

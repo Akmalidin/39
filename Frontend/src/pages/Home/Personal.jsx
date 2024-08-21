@@ -75,7 +75,7 @@ export const Personal = () => {
                   if (person.pdf_file) {
                     window.open(person.pdf_file, "_blank");
                   } else {
-                    alert("информация файл не найден.");
+                    alert("PDF файл не найден.");
                   }
                 }}
               >

@@ -126,21 +126,7 @@
     z-index: 1000;
     cursor: pointer;
 
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 32px;
-      color: $white;
-      cursor: pointer;
-      transition: color 0.3s ease, transform 0.3s ease;
-
-      &:hover {
-        color: #e74c3c;
-        transform: scale(1.2);
-      }
-    }
-
+  
     .modal-content {
       max-width: 90%;
       max-height: 80%;

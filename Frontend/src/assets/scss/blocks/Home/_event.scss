@@ -278,7 +278,13 @@
       display: block;
       padding: 0;
       gap: 0.9375rem;
-      overflow: hidden;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 450px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .event__card {
@@ -294,11 +300,10 @@
       &::before {
         clip-path: circle(50% at 50% 50%);
       }
-      
+
       &:hover::before {
         clip-path: circle(50% at 50% 50%);
       }
-      
     }
   }
 
@@ -308,12 +313,31 @@
     }
 
     .event__card h2 {
-      font-size: 0.8rem;
-      width: 12rem;
+      font-size: 1.3rem !important;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 130px;
+      margin: 0 auto !important;
     }
 
     .modal__info {
-      padding: 1rem;
+      padding: 0.8rem;
+    }
+  }
+
+  @media (max-width: 430px) {
+    .event__card h2 {
+      font-size: 1.3rem !important;
+      padding-right: 50px !important;
+    }
+  }
+
+
+  @media (max-width: 370px) {
+    .event__card h2 {
+      font-size: 1.3rem !important;
+      padding-right: 70px !important;
     }
   }
 

@@ -144,7 +144,6 @@ export const Gallerys = () => {
 
       {isOpen && (
         <div className="modal" onClick={closeModal}>
-        <span className="close">&times;</span>
         <img
           className="modal-content"
           src={selectedImage}

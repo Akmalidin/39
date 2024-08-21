@@ -81,6 +81,8 @@
 
     .personal__image {
       position: relative;
+      cursor: pointer;
+
 
       img {
         width: 100%;
@@ -298,23 +300,23 @@
 
     .personal__list {
       display: flex;
-      flex-wrap: nowrap; 
+      flex-wrap: nowrap;
       align-items: center;
       justify-content: start;
       gap: 38px;
-      overflow-x: auto; 
-      padding-bottom: 10px; 
+      overflow-x: auto;
+      padding-bottom: 10px;
       &::-webkit-scrollbar {
         width: 0;
         height: 0;
       }
-    
-      scroll-snap-type: x mandatory; 
-    
+
+      scroll-snap-type: x mandatory;
+
       .personal__card {
-        scroll-snap-align: start; 
-        width: 270px; 
-        flex: 0 0 auto; 
+        scroll-snap-align: start;
+        width: 270px;
+        flex: 0 0 auto;
       }
     }
 
@@ -344,7 +346,6 @@
     }
   }
 
-
   @media (max-width: 360px) {
     .personal__head {
       flex-direction: column;
@@ -372,48 +373,54 @@
 
     .personal__list {
       display: flex;
-      flex-wrap: nowrap; 
+      flex-wrap: nowrap;
       align-items: center;
       justify-content: start;
       gap: 38px;
-      overflow-x: auto; 
-      padding-bottom: 10px; 
+      overflow-x: auto;
+      padding-bottom: 10px;
+      padding-left: 10px;
+
       &::-webkit-scrollbar {
         width: 0;
         height: 0;
       }
-    
-      scroll-snap-type: x mandatory; 
-    
+
+      scroll-snap-type: x mandatory;
+
       .personal__card {
-        scroll-snap-align: start; 
-        width: 250px; 
-        flex: 0 0 auto; 
+        scroll-snap-align: start;
+        flex: 0 0 auto;
       }
     }
 
-    .personal__card {
-      width: 250px;
-      margin: 0 auto;
-
-      .personal__image img {
-        height: 260px;
-      }
-
-      .personal__info {
-        padding: 25px 0;
+    .personal__list {
+      .personal__card {
+        max-width: 240px;
         margin: 0 auto;
 
-        h3 {
-          font-size: 18px;
-          margin: 0 auto;
+        .personal__image img {
+          height: 250px;
         }
 
-        p {
-          font-weight: 400;
-          font-size: 17px;
+        .personal__info {
+          padding: 20px 0;
           margin: 0 auto;
-          margin-top: 8px;
+          text-align: center !important;
+
+          h3 {
+            font-size: 18px;
+            margin: 0 auto !important;
+            text-align: center !important;
+          }
+
+          p {
+            font-weight: 400;
+            font-size: 17px;
+            margin: 0 auto;
+            margin-top: 8px;
+            text-align: center;
+          }
         }
       }
     }
