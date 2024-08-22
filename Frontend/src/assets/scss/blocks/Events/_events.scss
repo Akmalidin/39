@@ -199,9 +199,6 @@
       h2,
       h4,
       button {
-        font-family: $playfair;
-        font-size: 18px;
-        font-weight: 400;
         position: relative;
         z-index: 2;
         animation: fadeInUp 0.8s ease-in-out;
@@ -244,10 +241,10 @@
 
       button {
         display: flex;
-        align-items: center;
+        align-items: end;
         justify-content: center;
         font-family: $playfair;
-        font-size: 19px;
+        font-size: 12px;
         font-weight: 600;
         letter-spacing: 1px;
         gap: 8px;
@@ -259,6 +256,7 @@
         cursor: pointer;
         transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s,
           opacity 0.3s;
+          
 
         &:hover {
           background: linear-gradient(45deg, #28a745, #32a852);
@@ -268,8 +266,9 @@
         }
 
         .event__btn-icon {
-          font-size: 20px;
+          font-size: 12px;
           transition: transform 0.3s, color 0.3s;
+          margin-bottom: 1px;
 
           &:hover {
             transform: rotate(15deg);
