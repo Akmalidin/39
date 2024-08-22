@@ -116,7 +116,7 @@ export const Event = () => {
         <div className="event__wrapper">
           {events.slice(0, 10).map((event) => (
             <div
-              key={event.id} // Используйте уникальный идентификатор, если есть
+              key={event.id} 
               className="event__card"
               style={{
                 backgroundImage: `url(${
