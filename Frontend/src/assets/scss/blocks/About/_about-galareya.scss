@@ -95,15 +95,19 @@
 
       .her__right-wrapper {
         width: 100%;
+        margin: 0 auto;
         gap: 16px;
       }
 
       .her__right-top,
       .her__right-bottom {
-        width: 100%;
+        margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+        width: 90%;
         height: 180px;
       }
     }
   }
 }
-

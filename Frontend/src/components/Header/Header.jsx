@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Logo from "../../assets/images/logo.png";
 import { NavLink } from "react-router-dom";
 import AOS from "aos";
@@ -10,6 +10,7 @@ export const Header = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [scrollingUp, setScrollingUp] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null); 
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -42,6 +43,25 @@ export const Header = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  const closeMenu = () => setMenuOpen(false);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    };
+
+    if (menuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <header
       className={`header ${isSticky ? "sticky" : ""} ${scrollingUp ? "scrolling-up" : ""}`}
@@ -57,30 +77,30 @@ export const Header = () => {
             <div className="bar"></div>
             <div className="bar"></div>
           </div>
-          <nav className={menuOpen ? "active" : ""}>
+          <nav ref={menuRef} className={menuOpen ? "active" : ""}>
             <ul>
               <li>
-                <NavLink className="header__nav-item" to={"/"}>
+                <NavLink className="header__nav-item" to={"/"} onClick={closeMenu}>
                   Главная
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/about"}>
+                <NavLink className="header__nav-item" to={"/about"} onClick={closeMenu}>
                   О нас
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/teachers"}>
+                <NavLink className="header__nav-item" to={"/teachers"} onClick={closeMenu}>
                   Учителя
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/events"}>
+                <NavLink className="header__nav-item" to={"/events"} onClick={closeMenu}>
                   События
                 </NavLink>
               </li>
               <li>
-                <NavLink className="header__nav-item" to={"/contacts"}>
+                <NavLink className="header__nav-item" to={"/contacts"} onClick={closeMenu}>
                   Контакты
                 </NavLink>
               </li>

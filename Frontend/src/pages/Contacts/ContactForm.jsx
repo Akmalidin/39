@@ -29,7 +29,6 @@ export const ContactForm = () => {
     fetchContact();
   }, []);
 
-  // Обработчик для добавления отзыва
   const handleReviewSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -64,7 +63,6 @@ export const ContactForm = () => {
     }
   };
 
-  // Обработчик для отправки доверенности
   const handleWhatsAppSubmit = (e) => {
     e.preventDefault();
 
@@ -73,25 +71,20 @@ export const ContactForm = () => {
       return;
     }
 
-    // Удаление всех нецифровых символов из номера телефона
     const phoneNumber = contact.phone_number.replace(/[^0-9]/g, "");
 
-    // Формирование сообщения
     const whatsappMessage = encodeURIComponent(
       `Имя: ${name}\nСообщение: ${message}`
     );
 
-    // Формирование URL для WhatsApp
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
-    // Открытие WhatsApp с сформированным сообщением
     window.open(whatsappURL, "_blank");
 
     setStatus("");
     clearForm();
   };
 
-  // Очистка формы
   const clearForm = () => {
     setName("");
     setMessage("");

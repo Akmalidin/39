@@ -53,9 +53,9 @@ export const AboutHomeThree = () => {
   const classesRef = useRef(null);
   const roomRef = useRef(null);
 
-  useCountUp(studentsRef, 1200, 3000); 
+  useCountUp(studentsRef, 1400, 3000); 
   useCountUp(teachersRef, 80, 3000);
-  useCountUp(classesRef, 120, 3000);
+  useCountUp(classesRef, 120, 45);
   useCountUp(roomRef, 70, 3000);
 
   return (

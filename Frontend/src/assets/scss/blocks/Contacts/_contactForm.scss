@@ -195,7 +195,7 @@
         textarea {
           font-weight: 400;
           font-size: 1rem;
-          width: 400px;
+          width: 350px;
         }
 
         textarea {
@@ -226,7 +226,43 @@
         textarea {
           font-weight: 400;
           font-size: 1rem;
-          width: 280px;
+          width: 310px;
+        }
+      }
+      .form-btns {
+        gap: 5px;
+        button {
+          width: 50% ;
+          height: 40px;
+          font-weight: 400;
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .contact-hero__form {
+    form {
+      .form-group {
+        margin: 0 auto;
+        input,
+        textarea {
+          font-weight: 400;
+          font-size: 1rem;
+          width: 270px;
+        }
+      }
+      .form-btns {
+        gap: 5px;
+        display: flex;
+        flex-direction: column;
+        button {
+          width: 85% ;
+          height: 40px;
+          font-weight: 400;
+          font-size: 8px;
         }
       }
     }
