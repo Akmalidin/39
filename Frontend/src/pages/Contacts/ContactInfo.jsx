@@ -7,7 +7,7 @@ const ContactInfo = () => {
   const [contact, setContact] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/contact/contacts/")
+    axios.get("http://127.0.0.1:8001/contact/contacts/")
       .then(response => {
         if (response.data.length > 0) {
           setContact(response.data[0]);

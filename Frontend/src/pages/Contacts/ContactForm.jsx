@@ -12,7 +12,7 @@ export const ContactForm = () => {
     const fetchContact = async () => {
       setLoading(true);
       try {
-        const response = await axios.get("http://127.0.0.1:8000/contact/contacts/");
+        const response = await axios.get("http://127.0.0.1:8001/contact/contacts/");
         if (response.data.length > 0) {
           setContact(response.data[0]);
         } else {
@@ -40,7 +40,7 @@ export const ContactForm = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/review/reviews/",
+        "http://127.0.0.1:8001/review/reviews/",
         reviewData,
         {
           headers: {

@@ -20,7 +20,7 @@ export const Galareya = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/gallery/gallery/")
+      .get("http://127.0.0.1:8001/gallery/gallery/")
       .then((response) => {
         const fetchedImages = response.data.map((item) => item.image);
         setImages(fetchedImages);

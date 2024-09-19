@@ -19,9 +19,10 @@ export const Personal = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/personal/personals")
+      .get("http://127.0.0.1:8001/personal/personals")
       .then((response) => {
         setPersonal(response.data);
+        console.log(response.data);
         setLoading(false);
       })
       .catch((error) => {

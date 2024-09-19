@@ -30,7 +30,7 @@ export const Footer = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/contact/contacts/")
+      .get("http://127.0.0.1:8001/contact/contacts/")
       .then((response) => {
         if (response.data.length > 0) {
           const contactInfo = response.data[0]; 
@@ -47,7 +47,7 @@ export const Footer = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/link/links/")
+      .get("http://127.0.0.1:8001/link/links/")
       .then((response) => {
         const data = response.data;
         if (data.length > 0) {

@@ -15,7 +15,7 @@ export const Teachers = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/teacher/teachers/")
+      .get("http://127.0.0.1:8001/teacher/teachers/")
       .then((response) => {
         setTeachers(response.data);
         setFilteredTeachers(response.data);

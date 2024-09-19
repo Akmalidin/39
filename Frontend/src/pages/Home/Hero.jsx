@@ -10,7 +10,7 @@ export const Hero = () => {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/link/links/")
+      .get("http://127.0.0.1:8001/link/links/")
       .then((response) => {
         setLinks(response.data[0]);
       })

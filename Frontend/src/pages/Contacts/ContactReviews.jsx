@@ -9,7 +9,7 @@ export const ContactReviews = () => {
     const fetchReviews = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/review/reviews/"
+          "http://127.0.0.1:8001/review/reviews/"
         );
         setReviews(response.data);
       } catch (err) {

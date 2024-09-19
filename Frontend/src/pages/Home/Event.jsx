@@ -13,7 +13,7 @@ export const Event = () => {
   const modalRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/event/events/")
+    fetch("http://127.0.0.1:8001/event/events/")
       .then((response) => response.json())
       .then((data) => {
         setEvents(data);
