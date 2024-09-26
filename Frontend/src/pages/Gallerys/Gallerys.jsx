@@ -107,7 +107,7 @@ export const Gallerys = () => {
   if (images.length === 0) {
     return (
       <div className="no-product">
-         <button onClick={() => navigate(-1)} className="back-button">
+        <button onClick={() => navigate(-1)} className="back-button">
           <FaCircleArrowLeft />
         </button>
         <p>На данный момент изображения отсутствуют.</p>
@@ -144,29 +144,29 @@ export const Gallerys = () => {
 
       {isOpen && (
         <div className="modal" onClick={closeModal}>
-        <img
-          className="modal-content"
-          src={selectedImage}
-          alt="Enlarged view"
-        />
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            handlePrevious();
-          }}
-        >
-          <MdKeyboardDoubleArrowLeft className="previous-button" />
-        </button>
-        <button
-          onClick={(e) => {
-            e.stopPropagation();
-            handleNext();
-          }}
-        >
-          <MdKeyboardDoubleArrowRight className="next-button" />
-        </button>
-      </div>
-    )}
-  </section>
-);
+          <img
+            className="modal-content"
+            src={selectedImage}
+            alt="Enlarged view"
+          />
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrevious();
+            }}
+          >
+            <MdKeyboardDoubleArrowLeft className="previous-button" />
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
+          >
+            <MdKeyboardDoubleArrowRight className="next-button" />
+          </button>
+        </div>
+      )}
+    </section>
+  );
 };
